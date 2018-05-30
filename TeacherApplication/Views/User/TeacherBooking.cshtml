@@ -1,0 +1,220 @@
+﻿@model Domain.TeacherTimeDetails
+
+@{
+    ViewBag.Title = "TeacherBooking";
+    Layout = "~/Views/Shared/_UserDetails.cshtml";
+    var fromAvailableTime = Convert.ToDateTime(Model.FromAvailableTime).Hour;
+    var toAvailableTime = Convert.ToDateTime(Model.ToAvailableTime).Hour;
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(model => model.UserId)
+    @Html.HiddenFor(model => model.ClassId)
+    @Html.HiddenFor(model => model.TeacherId)
+    @Html.HiddenFor(model => model.AvailableTeacherTimeId)
+
+    <div class="well">
+        <div class="text-center">
+            <h4>TeacherBooking</h4>
+            <h4>Please Select the from date and to date to book the Teacher</h4>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="img-rounded col-md-offset-6">
+                    <img src="~/Images/noimage.jpg" style="height:200px;width:200px" />
+                </div>
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <input type="text" id="FromDatepicker" />
+                @*<div id="FromDatepicker"></div>*@
+            </div>
+            <div class="col-md-3 col-xs-12">
+                <div id="ToDatepicker"></div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <label>FromTime:</label>
+            <input type="text" id="FromTime" value="@fromAvailableTime" name="FromAvailableTime" />
+            <label>To Time:</label>
+            <input type="text" id="ToTime" value="@toAvailableTime" name="ToAvailableTime" />
+        </div>
+
+        <div class="row text-center">
+            <input type="submit" value="Book" class="btn btn-success btnBook" style="margin-top: 74px;" />
+            <a href="/"><input type="button" class="btn btn-danger" value="Cancel" style="margin-top: 74px;" /></a>
+        </div>
+    </div>
+    <h3 class="alert-success text-center">Booking Details</h3>
+    <div class="container-fluid">
+        <div class="col-md-6 alert-info">
+            <table class="table table-bordered" id="tblDetails">
+                <tr>
+                    <td><label>TeacherName:</label> </td>
+                    <td>@Model.TeacherName</td>
+                </tr>
+                <tr>
+                    <td>
+                        <label> SubjectName:</label>
+                    </td>
+                    <td>
+                        @Model.SubjectName
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label> BookingFromDate:</label>
+                    </td>
+                    <td><input type="text" id="FromBookingDate" value="@Model.FromAvailableDate" name="FromAvailableDate" readonly required /></td>
+                </tr>
+                <tr>
+                    <td><label>BookingToDate:</label></td>
+                    <td><input type="text" id="ToBookingDate" value="@Model.ToAvailableDate" readonly name="ToAvailableDate" required /></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <div id="CountDownTimer" data-timer="900" style="width: 400px; height: 250px;"></div>
+        </div>
+    </div>
+
+}
+
+
+
+@*<script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+@section scripts{
+    <script src="~/scripts/jquery.datetimepicker.full.js"></script>
+    <link href="~/Content/jquery.datetimepicker.css" rel="stylesheet" />
+    @*<link href="~/Content/jquery.datetimepicker.min.css" rel="stylesheet" />*@
+    <script src="~/scripts/TimeCircles.js"></script>
+    <link href="~/Content/TimeCircles.css" rel="stylesheet" />
+    <script>
+        $(document).ready(function () {
+            var fromAvailableDate = $('#FromBookingDate').val();
+            var toAvailableDate = $('#ToBookingDate').val();
+            var fromAvailableTime = $('#FromTime').val();
+            var ToAvailableTime = $('#ToTime').val();
+            var TeacherId = $('#TeacherId').val();
+            var dates = [];
+            $.ajax({
+                url: '/User/DisableDate',
+                type: 'Get',
+                dataType: "Json",
+                contentType: "application/json",
+                data: { teachId: TeacherId },
+            }).success(function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    dates[i] = data[i] + ""
+                }
+                $('#FromDatepicker').datetimepicker({
+                    timepicker: false,
+                    inline: true,
+                    formatDate: 'Y-m-d',
+                    onChangeDateTime: function (dp, $input) {
+                        $('#FromBookingDate').val($input.val());
+                        DateVal($input.val());
+                    },
+                    minDate: fromAvailableDate,
+                    //maxDate: toAvailableDate,
+                    disabledDates: dates,
+                    
+                });
+
+                function DateVal(pDate) {
+                    var d = new Date();
+                    var s=new Date(pDate)
+                    if (d > s) {
+                        alert("Dateshould be greater than today's Date")
+                        $(':input[type="submit"]').prop('disabled', true);
+                    }
+                    else {
+                        $(':input[type="submit"]').prop('disabled', false);
+                    }
+                };
+
+                $('#ToDatepicker').datetimepicker({
+                    timepicker: false,
+                    inline: true,
+                    onChangeDateTime: function (dp, $input) {
+                        $('#ToBookingDate').val($input.val());
+                        todateval($input.val());
+                    },
+                    minDate: fromAvailableDate,
+                    //maxDate: toAvailableDate,
+                    disabledDates: dates,
+                    formatDate: 'Y-m-d',
+                });
+
+                function todateval(pDate) {
+                    var d = new Date();
+                    var s = new Date(pDate)
+                    if (d > s) {
+                        alert("Dateshould be greater than today's Date");
+                        $(':input[type="submit"]').prop('disabled', true);
+                    }
+                    else {
+                        $(':input[type="submit"]').prop('disabled', false);
+                    }
+                    var frmdate = new Date($('#FromBookingDate').val());
+                    if(s<frmdate)
+                    {
+                        alert("Dateshould be greater than from Date");
+                        $(':input[type="submit"]').prop('disabled', true);
+                    }
+                    else
+                    {
+                        $(':input[type="submit"]').prop('disabled', false);
+                    }
+                };
+                $('#FromTime').datetimepicker({
+                    datepicker: false,
+                    //minTime: fromAvailableTime,
+                    //maxTime: ToAvailableTime,
+                    format: 'H:i',
+                    allowTimes: Times(fromAvailableTime, ToAvailableTime)
+                });
+
+                $('#ToTime').datetimepicker({
+                    datepicker: false,
+                    format: 'H:i',
+                    allowTimes: Times(fromAvailableTime, ToAvailableTime)
+                });
+
+                $("#CountDownTimer").TimeCircles({ time: { Days: { show: false }, Hours: { show: false } } });
+
+                function Times(fromAvailableTime, ToAvailableTime) {
+
+                    var times = [];
+                    var i = 0;
+                    for (var starttime = fromAvailableTime; starttime <= ToAvailableTime; starttime++) {
+                        times[i] = starttime + "";
+                        i++
+                    }
+                    return times;
+                }
+
+                $('#ToTime').val(ToAvailableTime + ":00");
+                $('#FromTime').val(fromAvailableTime + ":00");
+
+
+                window.setTimeout(function () {
+                    window.location.href = '/';
+                }, 900000);
+
+
+            });
+
+
+        });
+
+    </script>
+}

@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminNewLayout.cshtml";
+    //Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div>
+    @*@Html.Partial("_Classes")*@
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.notify({
+                icon: 'ti-gift',
+                message: "Welcome <b>@Helper.UserName</b>."
+
+            }, {
+                type: 'success',
+                timer: 4000
+            });
+
+        });
+    </script>
+}

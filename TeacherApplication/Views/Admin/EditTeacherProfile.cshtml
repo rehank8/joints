@@ -1,0 +1,79 @@
+﻿@model Domain.TeacherProfile
+
+@{
+    ViewBag.Title = "EditTeacherProfile";
+    Layout = "~/Views/Shared/_AdminNewLayout.cshtml";
+    //Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container">
+    <div class="header">
+        <p class="category">Edit TeacherProfile</p>
+    </div>
+    <div class="card">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.PKTeachersId)
+                @Html.HiddenFor(model => model.FKUserId)
+                @Html.HiddenFor(model => model.FKClassId)
+                @Html.HiddenFor(model => model.UserProfile)
+                <div class="form-group">
+                    @Html.Label("Teacher Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" value="@ViewBag.TeacherName" readonly />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FKClassId, "Class Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Class.ClassName, new { htmlAttributes = new { @class = "form-control border-input" } })
+                        @*@Html.DropDownList("FKClassId", null, htmlAttributes: new { @class = "form-control" })*@
+                        @Html.ValidationMessageFor(model => model.Class.ClassName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Experience, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Experience, new { htmlAttributes = new { @class = "form-control border-input" } })
+                        @Html.ValidationMessageFor(model => model.Experience, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control border-input" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.IsActive)
+                            @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-success" />
+                        <a href="/Admin/TeacherProfile"><input type="button" value="Cancel" class="btn btn-danger" /></a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

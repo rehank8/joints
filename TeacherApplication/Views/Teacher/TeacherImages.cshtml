@@ -1,0 +1,111 @@
+﻿@model IEnumerable<Domain.UserImage>
+
+@{
+    ViewBag.Title = "TeacherImages";
+    //Layout = "~/Views/Shared/_TeacherLayout.cshtml";
+    Layout = "~/Views/Shared/_TeacherNewLayout.cshtml";
+}
+<br />
+<div class="text-center">
+    @if (Model.Count()<=10)
+    {
+    <button type="button" class="w3-button w3-white w3-border w3-border-blue w3-round-large" data-toggle="modal" data-target="#myModal">Add Images</button>
+    }
+    @*<a href="@Url.Action("CreateTeacherImages","Teacher",new { id=ViewBag.ClassId})"><input type="button" value="Add image" class="w3-button w3-white w3-border w3-border-blue w3-round-large" /></a>*@
+    <a href='@Url.Action("EditClass", "Teacher", new { id = ViewBag.ClassId })'><input type="button" class="w3-button w3-white w3-border w3-border-red w3-round-large" value="Cancel" /></a>
+</div>
+<br />
+
+<div class="w3-row w3-center">
+    @foreach (var item in Model)
+        {
+        <div class="w3-third">
+            <img src="@item.ImageUrl" style="height:250px;width:250px" onclick="onClick(this)" alt="@item.ImageName" class="img-thumbnail">
+            <br />
+            <div style="padding:5px">
+                <a href="/Teacher/EditTeacherImages/@item.PKUserImageId"><input type="button" value="Edit" class="w3-button w3-white w3-border w3-border-blue w3-round-large" /></a>
+                <a href="/Teacher/Delete/@item.PKUserImageId"><input type="button" value="Delete" class="w3-button w3-white w3-border w3-border-red w3-round-large" /></a>
+            </div>
+        </div>
+        }
+</div>
+@if (Model.Count() == 0)
+{
+    <h2>No images found</h2>
+}
+
+<div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+        <img id="img01" class="w3-image">
+        <p id="caption"></p>
+
+    </div>
+</div>
+<br />
+
+<div id="myModal" class="modal fade" role="form">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add Images</h4>
+            </div>
+            <div class="modal-body">
+
+                @using (Html.BeginForm("CreateTeacherImages", "Teacher", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.Hidden("PKUserImageId")
+                        <div class="form-group">
+                            @Html.Label("Upload Images", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-6">
+                                <input type="file" name="image" />
+                            </div>
+                        </div>
+                        <input type="text" value="@ViewBag.ClassId" name="FKClassId" hidden />
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="w3-button w3-white w3-border w3-border-blue w3-round-large" />
+                                <button type="button" class="w3-button w3-white w3-border w3-border-red w3-round-large" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    // Modal Image Gallery
+    function onClick(element) {
+        document.getElementById("img01").src = element.src;
+        document.getElementById("modal01").style.display = "block";
+        var captionText = document.getElementById("caption");
+        captionText.innerHTML = element.alt;
+    }
+</script>
+
+
+
+

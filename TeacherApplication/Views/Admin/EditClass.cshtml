@@ -1,0 +1,67 @@
+﻿@model Domain.Class
+
+@{
+    ViewBag.Title = "EditClass";
+    Layout = "~/Views/Shared/_AdminNewLayout.cshtml";
+    //Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container">
+    <div class="header">
+        <p class="category">Edit Class</p>
+    </div>
+    <div class="card">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.PKClassId)
+                @Html.HiddenFor(model => model.FKUserId)
+                @Html.HiddenFor(model => model.FKCityId)
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FKSubjectId, "Subject Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.FKSubjectId, ViewBag.Subject as SelectList, "Select Subject", new { @readonly="readonly" })
+                        @Html.ValidationMessageFor(model => model.FKSubjectId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ClassName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ClassName, new { htmlAttributes = new { @class = "form-control border-input" } })
+                        @Html.ValidationMessageFor(model => model.ClassName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+              
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IsApproved, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.IsApproved)
+                            @Html.ValidationMessageFor(model => model.IsApproved, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-success" />
+                        <a href="/Admin/Class"><input type="button" value="Cancel" class="btn btn-danger" /></a>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

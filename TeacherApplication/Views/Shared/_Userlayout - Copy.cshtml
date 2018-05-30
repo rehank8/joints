@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Best $services in $location-find the top $service providers in $location-Wedding Point</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="$Services in $location.Find Best $services.Get Phone Numbers,Address,Reviews,Photos,Maps forr Top $services in $location on WeddingJoints.com">
+    <meta name="keywords" content="$Services,$location,$services in $location,reviews,maps,address,Photos,best $service,weddingjoints.com">
+    @Styles.Render("~/Content/UserLayoutCSS")
+    <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/scripts/bootstrap.min.js"></script>
+    <link href="~/assets/css/custom.css" rel="stylesheet" />
+    <style>
+    </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+    <nav class="navbar navbar-default header-nav">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="~/assets/img/logo.png" /></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    @*<li><a href="#about">ABOUT</a></li>
+            <li><a href="#services">SERVICES</a></li>
+            <li><a href="#contact">CONTACT</a></li>*@
+                    @if (Helper.UserData != "")
+                    {
+                        <li><a href='@Url.Action("LogOut","Account")'>Hello @Helper.UserName! Logout</a></li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="@Url.Action("Login", "Account")" class="btn btn-sm btn-theme"  ="btnLogin" data-toggle="modal" data-target="#myModal">login</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Registration", "Account")"  id="btnregisterlink" data-toggle="modal" data-target="#registerModal">Register</a>
+                        </li>
+
+                        
+                    }
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    
+
+
+    <div class="jumbotron" >
+        @*<a href="/" class="logoSec hidden-sm hidden-xs"><img src="/Images/logo.png" alt=""></a>*@
+       
+        <form class="form-inline" action="@Url.Action("Index","User",null)" method="post" id="Search">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 form-mobile">
+                    <input type="text" readonly id="loc" class="form-control input-lg" name="txtLocation" value="@ViewBag.Location" />
+                    <input type="text" placeholder="search based on  City" class="form-control input-lg" name="txtCity" id="txtCity" value="@ViewBag.Location" />
+                    <button type="submit" class="btn btn-danger btn-lg">Search</button>
+                </div>
+            </div>
+           
+           
+
+            @*@Html.DropDownList("States", ViewBag.State as SelectList, "Please Select State", htmlAttributes: new { @class = "form-control" })
+        @Html.DropDownList("Cities", ViewBag.Cities as SelectList, "Select Cities", new { @class = "form-control" })
+        <button type="submit" class="btn btn-danger">Search</button>*@
+            <div class="container">
+                @{
+                    var subject = Data_Access.DbHelper.GetSubjects();
+                    <ul class="list-inline  navbar-default services-menu" >
+                        @foreach (var item in subject)
+                        {
+                            <li><a href="@Url.Action("Index","User",null)"><img class="categoryLink" src="/Images/@(item.SubjectName).png" alt="@item.SubjectName"><input type="submit" class="btn btn-link" value="@item.SubjectName" name="subjectlink" style="color:White" /></a></li>
+                        }
+                    </ul>
+                }
+            </div>
+        </form>
+
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+
+
+
+
+    <!--Login Section-->
+    <div>
+        @Html.Partial("_PartialLogin")
+    </div>
+    <!--Register Section-->
+    <div>
+        @Html.Partial("_PartialRegister")
+    </div>
+    <footer class="footer2">
+        <div class="footer">
+            <div class="text-center">
+                <a href="#myPage" title="To Top">
+                    <span class="glyphicon glyphicon-chevron-up"></span>
+                </a>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <nav class="col-md-3 col-sm-6 col-xs-12">
+                        <h3>Browse <span>Categories</span></h3>
+                        <ul>
+                            @foreach (var item in subject)
+                            {
+                                <li>
+                                    <a href="@Url.Action("Index","User",null)">@item.SubjectName</a>
+                                </li>
+                            }
+
+                        </ul>
+                    </nav>
+                    <nav class="col-md-3 col-sm-6 col-xs-12">
+                        <h3>Top <span>Cities</span></h3>
+                        <ul>
+                            <li> <a href="#">Birmingham</a></li>
+                            <li>
+                                <a href="#">   Huntsville</a>
+                            </li>
+                            <li> <a href="#">Montgomery</a></li>
+                            <li>
+                                <a href="#"> Fairbanks</a>
+                            </li>
+                            <li>
+                                <a href="#"> Juneau</a>
+                            </li>
+                            <li>
+                                <a href="#">Sitka</a>
+                            </li>
+                            <li>
+                                <a href="#"> Chandler</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <nav class="col-md-3 col-sm-6 col-xs-12">
+                        <h3>Help <span>& Support</span></h3>
+                        <ul>
+                            <li> <a href="#">Help Center</a></li>
+                            <li>
+                                <a href="#">FAQ</a>
+                            </li>
+                            <li> <a href="#">Privacy Policy</a></li>
+                            <li>
+                                <a href="#">About Us</a>
+                            </li>
+                            <li>
+                                <a href="#">Contact Us</a>
+                            </li>
+                            <li>
+                                <a href="#">Services</a>
+                            </li>
+                            <li>
+                                <a href="#"> Mission</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <nav class="col-md-3 col-sm-6 col-xs-12">
+                        <h3>Follow <span>weddingJoints</span></h3>
+                        <div class="input-group input-group-md">
+                            <input type="text" class="form-control" placeholder="Email Address">
+                            <span class="input-group-addon">Subscribe</span>
+                        </div>
+                        <ul class="social">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                        </ul>
+                    </nav>
+                </div> <!--/.row-->
+                <hr />
+                <div class="row" style="color:#DDD;line-height: 1.5;font-size: 13px;">
+                    @foreach (var item in ViewBag.FooterCities as List<Domain.City>)
+                    {
+                        <div class="col-sm-3">
+                            @item.CityName
+                        </div>
+                    }
+                </div>
+            </div> <!--/.container-->
+        </div> <!--/.footer-->
+
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="pull-left"> Copyright © Footer www.weddingJoints.com</div>
+                <div class="pull-right">Made By <a href="#" title="Visit weddingjoints.com">www.weddingJoints.com</a></div>
+            </div>
+        </div> <!--/.footer-bottom-->
+    </footer>
+
+    <script src="~/scripts/UserLayout.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#States').change(function () {
+                var id = $('#States').val();
+                $.getJSON("/User/GetCities?stateId=" + id, function (data) {
+                    $("#Cities").empty();
+                    $("#Cities").append($("<option></option>").val('').html('Select Cities'));
+                    $.each(data, function (key, item) {
+                        $("#Cities").append($("<option></option>").val(item.PKCityId).html(item.CityName));
+                    });
+                    //GetCategories(id);
+                })
+            });
+
+            $(".categoryLink").on("click", function (e) {
+                e.preventDefault(); // cancel the link itself
+                $(this).next(".btn-link").trigger('click');
+            });
+
+            $("#btnlink").on("click", function (e) {
+                e.preventDefault(); // cancel the link itself
+                $("#btnLogin").trigger('click');
+            });
+
+            $("#Cities").change(function () {
+                var stateId = $('#States').val();
+                var cityId = $('#Cities').val();
+                // GetCategories(stateId, cityId);
+                GetVendors(cityId);
+            });
+            $("#btnregister").on("click", function (e) {
+                e.preventDefault(); // cancel the link itself
+                $("#btnregisterlink").trigger('click');
+            });
+
+
+            function GetVendors(cityId) {
+                $.ajax("/User/GetVendors?cityId=" + cityId, {
+                    type: "GET",
+                    success: function (data) {
+                        $("#Vendercontent").empty();
+                        $("#Vendercontent").html(data);
+                    }
+                })
+            }
+
+
+            function GetCategories(stateId, cityId) {
+                $.getJSON("/User/GetSubject?stateId=" + stateId + "&cityId=" + cityId).success(function (data) {
+                    $("#mainMenu").empty();
+                    var str = "<li><a href='/' style='color:White'><img src='/Images/home_icon.png'>Home</a></li>"
+                    $.each(data, function (key, value) {
+                        str += "<li><a  href='@Url.Action("Index","User",null)'><img class='categoryLink' src='/Images/" + value.SubjectName + ".png' alt='" + value.SubjectName + "'><input type='submit' class='btn btn-link'  value='" + value.SubjectName + "' name='subjectlink' style='color:White' /></a></li>"
+                    });
+                    $("#mainMenu").append(str);
+                })
+            }
+        });
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

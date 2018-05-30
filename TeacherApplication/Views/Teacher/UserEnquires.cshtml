@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Domain.UserEnquiry>
+
+@{
+    ViewBag.Title = "UserEnquiries";
+    //Layout = "~/Views/Shared/_TeacherLayout.cshtml";
+    Layout = "~/Views/Shared/_TeacherNewLayout.cshtml";
+}
+<table class="table table-bordered table-responsive w3-hoverable w3-white">
+    <tr class="success">
+        <th>
+            @Html.DisplayNameFor(model => model.UserProfile.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.BookedFromDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookedToDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookedFromTime)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.BookedToTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookingStatus)
+        </th>
+        <th>
+            @Html.DisplayName("OnBookedDateTime")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subject)
+        </td>
+
+        <td>
+            @item.BookedFromDate.ToShortDateString()
+            @*@Html.DisplayFor(modelItem => item.BookedFromDate.ToShortDateString())*@
+        </td>
+        <td>
+            @item.BookedToDate.ToShortDateString()
+            @*@Html.DisplayFor(modelItem => item.BookedToDate.ToShortDateString())*@
+        </td>
+        <td>@Html.DisplayFor(modelItem => item.BookedFromTime)</td>
+
+        <td>@Html.DisplayFor(modelItem => item.BookedToTime)</td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.BookingStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+
+
+        <td>
+            @Html.ActionLink("Approve", "EditUserEnquiry", new { id = item.PKEnquiryId },new {@class= "w3-button w3-ripple w3-yellow" })
+            @*@Html.ActionLink("Details", "Details", new { id = item.PKEnquiryId }) |*@
+            @*@Html.ActionLink("Cancel", "Delete", new { id = item.PKEnquiryId })*@
+        </td>
+    </tr>
+    }
+
+</table>

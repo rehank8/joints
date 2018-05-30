@@ -1,0 +1,52 @@
+﻿@model Domain.UserEnquiry
+
+@{
+    ViewBag.Title = "EditUserEnquiry";
+    //Layout = "~/Views/Shared/_TeacherLayout.cshtml";
+    Layout = "~/Views/Shared/_TeacherNewLayout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.FKUserId)
+    @Html.HiddenFor(model => model.PKEnquiryId)
+    @Html.HiddenFor(model => model.FKAvailableTimeId)
+    @Html.HiddenFor(model => model.FKTeacherId)
+    @Html.HiddenFor(model => model.PKEnquiryId)
+    @Html.HiddenFor(model => model.CreatedDate)
+    @Html.HiddenFor(model => model.FKClassId)
+    @Html.HiddenFor(model => model.BookedFromDate)
+    @Html.HiddenFor(model => model.BookedFromTime)
+    @Html.HiddenFor(model => model.BookedToTime)
+    @Html.HiddenFor(model => model.BookedFromTime)
+    @Html.HiddenFor(model=>model.BookingStatus)
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <h3 class="text-center text-danger">Please Change the Status of Follow Up as True to Approve the Student</h3>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FollowUP, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.FollowUP)
+                    @Html.ValidationMessageFor(model => model.FollowUP, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Approve" class="w3-button w3-white w3-border w3-border-blue w3-round-large" />
+                <a href="/Teacher/UserEnquires"><input type="button" value="Cancel" class="w3-button w3-white w3-border w3-border-red w3-round-large" /></a>
+            </div>
+        </div>
+    </div>
+}
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Domain.Class>
+@{ 
+    List<Domain.Class> lstCls = new List<Domain.Class>();
+    lstCls = Data_Access.DbHelper.GetClasses(0, false);
+}
+@if (lstCls.Count != 0)
+{
+<h2 style="color:red">New Class is Added</h2>
+<table class="table table-bordered">
+    <tr class="success">
+        <th>
+            @Html.DisplayNameFor(model => model.ClassName)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.SubjectName)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.IsApproved)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserProfile.UserName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in lstCls)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClassName)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.SubjectName)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.IsApproved)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserProfile.UserName)
+        </td>
+        <td>
+            <a href="@Url.Action("EditClass", new { id = item.PKClassId })"><input type="button" value="Edit" class="btn btn-success" /></a>
+
+  
+        </td>
+    </tr>
+}
+
+</table>
+}

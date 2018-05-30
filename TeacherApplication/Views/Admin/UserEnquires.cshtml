@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Domain.UserEnquiry>
+
+@{
+    ViewBag.Title = "UserEnquires";
+    Layout = "~/Views/Shared/_AdminNewLayout.cshtml";
+    //Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .icons {
+        display: none;
+    }
+</style>
+
+<div class="container">
+    <table class="table table-striped table-responsive table-full-width">
+        <tr class="success">
+            <th>
+                @Html.DisplayName("User name")
+            </th>
+            <th>
+                @Html.DisplayName("Booked teacher name")
+            </th>
+            <th>
+                @Html.DisplayName("Date of booking")
+            </th>
+            <th>
+                @Html.DisplayName("Booked from Date")
+            </th>
+            <th>
+                @Html.DisplayName("Booked To Date")
+            </th>
+            <th>
+                @Html.DisplayName("Booked From Time")
+            </th>
+
+            <th>
+                @Html.DisplayName("Booked To Time")
+            </th>
+            <th>
+                @Html.DisplayName("Booking Status")
+            </th>
+
+        </tr>
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeacherName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookedFromDate)
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.BookedToDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.BookedFromTime)</td>
+
+                <td>@Html.DisplayFor(modelItem => item.BookedToTime)</td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookingStatus)
+                </td>
+
+                @*<td>
+                        @Html.ActionLink("Details", "UserEnquiryDetails", "Admin", new { id = item.PKEnquiryId })
+                    </td>*@
+            </tr>
+        }
+    </table>
+</div>

@@ -1,0 +1,248 @@
+﻿@model IEnumerable<Domain.UserIndex>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Userlayout - Copy.cshtml";
+}
+@*<span style="margin:0 30px 0 0;">
+        <div class="legend"></div>&#8594; Booked
+    </span>
+    >
+    <span>
+        <div class="legend" style="background:green;"></div>&#8594; Available
+    </span>*@
+<span id="categoryName" hidden>@ViewBag.CategoryName</span>
+<div>
+    <div class="col-xs-12 legendSec">
+        <div style="font-size:larger;color:darkblue">
+            <span id="location" style="padding-left:15px">@ViewBag.Location</span>
+        </div>  @*<form action="@Url.Action("Index","User",null)" method="post" id="Sorting">
+                <div class="pull-right">
+                    <label>Sort By Rating<i class="fa fa-sort" aria-hidden="true"></i></label>
+                    <select name="SortByRating" id="SortByRating">
+                        <option value="SortByRating" selected>Sort by Rating</option>
+                        <option value="Asc">Low-High</option>
+                        <option value="Desc">High-Low</option>
+                    </select>
+                </div>
+            </form>*@
+    </div>
+</div>
+
+@*<div>
+        <div class="col-xs-2" style="width:5px;height:5px; border-radius:1px,2px; padding: 20px; background-color:red"> </div><p class="col-xs-2" style="padding-top:10px">&#8594; Booked</p>
+        <div class="col-xs-2" style="width:5px;height:5px; border-radius:1px,2px; padding: 20px; background-color:green"> </div><p class="col-xs-2" style="padding-top:10px">&#8594; Available</p>
+    </div>*@
+<br />
+<br />
+<br />
+<div id="Vendercontent">
+    <div class="section-content portfolio-page standart">
+        @if (Model.Count() > 0)
+        {
+            <div class="container">
+                <div class="heading-block">
+                    <h2 class="heading center">@*Teachers*@</h2>
+                </div>
+                <div class="portfolio-box masonry col-4">
+                    @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        string path = "~/Images/noimage.jpg";
+                        string url = Url.Content((item.PhotoUrl == null) ? path : item.PhotoUrl);
+                            <div class="work-post @item.PKUserId">
+                                <img style="height: 200px;" src='@url' alt="@item.SubjectName">
+                                <span class="rating" hidden>@item.Rating</span>
+                                <div class="hover-box">
+                                    <div class="inner-hover">
+                                        @*<h2>Name:&nbsp @item.TeacherName</h2>*@
+                                        <h2>Name:&nbsp @item.ClassName</h2>
+                                        @if (item.CityName != "" && item.CityName != null)
+                                        {<h2>Location:&nbsp @item.CityName</h2> }
+                                        else
+                                        {<h2>Location:&nbsp @item.Location</h2> }
+                                        <h2>Category: @item.SubjectName</h2>
+                                        <h2>Period: @item.Experience Yrs</h2>
+                                        <span id="Teacherid" hidden>@item.Teacherid</span>
+                                        @*<a class="link" href='@Url.Action("UserDetails", new { id = item.ClassId,location=item.Location,services=item.SubjectName,vender=item.TeacherName })'><i class="fa fa-search"></i></a>*@
+                                        <a class="link" href='@Url.Action("UserDetails", new { id = item.ClassId })'><i class="fa fa-search"></i></a>
+                                    </div>
+                                </div>
+                                <h6 class="rateyorating" style="margin-left: 18px;"></h6>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 align="center">No Results found</h1>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+
+@section scripts{
+    <link href="~/Content/reset.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    @*<script src="~/scripts/modernizr-2.6.2.js"></script>*@
+    @*<script src="~/scripts/main.js"></script>*@
+    @*<script src="~/scripts/jquery.datetimepicker.full.js"></script>
+        <link href="~/Content/jquery.datetimepicker.css" rel="stylesheet" />*@
+    @*<link href="~/Content/jquery.datetimepicker.min.css" rel="stylesheet" />*@
+
+
+    <script type="text/javascript">
+        //$("#schedule").hide();
+        //$('.btnDate').click(function () {
+        //    var fromAvailableDate = $(this).parent("div").find('#fromDate').html();
+        //    var toAvailableDate = $(this).parent("div").find('#toDate').html();
+        //    var fromAvailableTime = $(this).parent("div").find('#fromTime').html();
+        //    var toAvailableTime = $(this).parent("div").find('#toTime').html();
+        //    var TeacherId = $(this).parent("div").find('#Teacherid').html();
+        //    var todays = $(this).parent("div").find('#todayDate').html();
+        //    var dates = [];
+        //    // debugger;
+        //    var uri = '/User/DisableDate?teachId=' + TeacherId;
+
+        //    $.getJSON(uri).done(function (data) {
+        //        for (var i = 0; i < data.length; i++) {
+        //            dates[i] = data[i] + ""
+        //        }
+
+        //        calender();
+        //        function calender() {
+        //            $('.btnDate').datetimepicker({
+        //                minDate: fromAvailableDate,
+        //                // maxDate: toAvailableDate,
+        //                //minTime: fromAvailableTime,
+        //                //maxTime: toAvailableTime,
+        //                //defaultDate: fromAvailableDate,
+        //                defaultDate: todays,
+        //                //defaultTime: fromAvailableTime,
+        //                allowTimes: [fromAvailableTime, toAvailableTime],
+        //                disabledDates: dates,
+        //                formatDate: 'Y-m-d',
+        //            });
+
+        //        }
+        //    });
+
+
+        //    function DisabledDates() {
+        //        return dates;
+        //    };
+        //});
+
+
+    </script>
+    @*<iframe src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=
+        &amp;*************output=embed"></iframe>*@
+    <script src="~/scripts/jquery-1.10.2.min.js"></script>
+
+
+    // star rating
+    <link href="~/Content/jquery.rateyo.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script src="~/scripts/jquery.rateyo.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $(".rating").each(function () {
+                var val = $(this).html();
+                $(this).parent("div").find('.rateyorating').rateYo({
+                    rating: val,
+                    readOnly: true
+                });
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#SortByRating").change(function () {
+                var sort = $("#SortByRating").val();
+                if (sort == "SortByRating") {
+                    return;
+                }
+                else {
+                    $("#Sorting").submit();
+                }
+            })
+        })
+    </script>
+    <script>
+        $(document).ready(function () {
+            var city = $('#txtCity').val();
+            if (city == "") {
+                getLocation();
+            }
+
+        });
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            var city = $('#txtCity').val();
+            var category = $('#categoryName').html();
+            var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + position.coords.latitude + "," + position.coords.longitude + "&sensor=true";
+            //var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=64.835365,-147.776749&sensor=true"
+            $.getJSON(url, function (data) {
+                var result = data.results[0].formatted_address;
+                //var country = result.split(',')[result.split(',').length - 1];
+                //var location = "Venders in " + result.split(',')[result.split(',').length - 3];
+                var location = "BanquetHall ,Chef ,Dj, Limousine ,Photographer,  StageDecorater ,Dresses  in" + result.split(',')[result.split(',').length - 3];
+                var url = window.location.href;
+                if (!url.find(result.split(',')[result.split(',').length - 3]))
+                {
+                    window.location.assign("/?Location=" + result.split(',')[result.split(',').length - 3]);
+                }
+                if (city == "") {
+                    $("#loc").val(result.split(',')[result.split(',').length - 3]);
+                    if (category == "")
+                        $('#location').html(location);
+                    else
+                        $('#location').html(category + " in " + result.split(',')[result.split(',').length - 3] );
+                }
+                else {
+                    $("#loc").val(city);
+                    if (category == "")
+                        $('#location').html("BanquetHall ,Chef ,Dj, Limousine ,Photographer,  StageDecorater ,Dresses in "+ city);
+                    else
+                        $('#location').html(category + " in " + city);
+
+                }
+                GetVendors(result.split(',')[result.split(',').length - 3]);
+            });
+
+
+
+            function GetVendors(cityName) {
+                var category = $('#categoryName').html();
+                var city = $('#txtCity').val();
+                if (category == "" && city == "") {
+                    $.ajax("/User/GetVendors?cityId=0&cityName=" + cityName, {
+                        type: "GET",
+                        success: function (data) {
+                            $("#Vendercontent").empty();
+                            $("#Vendercontent").html(data);
+                        }
+                    })
+                }
+            }
+        }
+    </script>
+
+}

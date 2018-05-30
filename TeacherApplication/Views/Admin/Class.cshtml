@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Domain.Class>
+
+@{
+    ViewBag.Title = "Class";
+    // Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_AdminNewLayout.cshtml";
+}
+
+<style>
+    .icons {
+        display: none;
+    }
+</style>
+<div class="container">
+    <div class="header">
+        <p>Vendor Category</p>
+    </div>
+    <table class="table table-striped table-responsive table-full-width">
+        <tr class="success">
+            <th>
+                @Html.DisplayName("Vender name")
+            </th>
+            <th>
+                @Html.DisplayName(" Vendor Category Name")
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.SubjectName)
+            </th>*@
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserProfile.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClassName)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.SubjectName)
+                </td>*@
+
+                <td>
+                    <a href="@Url.Action("EditClass",new {id=item.PKClassId })"><input type="button" value="Edit" class="btn btn-success" /></a>
+                    @*<a href="@Url.Action("ClassDetails",new {id=item.PKClassId })"><input type="button" value="Details" class="btn btn-info" /></a>*@
+                    @*<a href="@Url.Action("DeleteClass",new {id=item.PKClassId })"><input type="button" value="Delete" class="btn btn-danger" /></a>*@
+                    @*<a href="#"><input type="button" value="Delete" class="btn btn-danger" /></a>*@
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

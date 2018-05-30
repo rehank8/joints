@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/TeacherLayoutstyles.css" rel="stylesheet" />
+</head>
+<body style="padding-top: 0px;">
+    @{
+        string photo = Data_Access.DbHelper.GetUserProfile(Helper.UserId).PhotoUrl;
+        string path = "~/Images/noimage.jpg";
+        string url = Url.Content((photo == null) ? path : photo);
+    }
+    <nav class="navbar navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">For Teacher</a>
+        <ul class="nav navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href='@Url.Action("Index","Teacher")'>Home <span class="sr-only">(current)</span></a>
+            </li>
+            @*<li class="nav-item">
+                    <a class="nav-link" href="#">Teacher Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href='@Url.Action("Class","Teacher")'>Class</a>
+                </li>*@
+
+            <li class="nav-item dropdown navbar-right">
+
+                <a hrf="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user">Hello @Helper.UserName.ToUpper()</span><span class="glyphicon-chevron-down"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="@Url.Action("EditUserProfile","Teacher",new { id = Helper.UserId })" class="text-center"><img src="@url" class="img-rounded img-responsive" style="max-height:80px ;max-width:120px" /> Edit Profile</a></li>
+                    <li>
+                        <a href='@Url.Action("LogOut","Account")'>Logout</a>
+                    </li>
+                </ul>
+            </li>
+
+
+        </ul>
+        @*<form class="form-inline pull-xs-right">
+                <input class="form-control" type="text" placeholder="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>*@
+    </nav>
+    @*<nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">For Teacher</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Class <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Add Class</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Add Profile</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">UserEnquires</a></li>
+                    <li><a href="#">Images&Videos</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> LogOut</a></li>
+                </ul>
+            </div>
+        </nav>*@
+
+
+    <div>
+        @RenderBody()
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

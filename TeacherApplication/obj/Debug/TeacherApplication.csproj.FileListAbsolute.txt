@@ -1,0 +1,414 @@
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\ApplicationInsights.config
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\roslyn\csc.exe
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\roslyn\System.Collections.Immutable.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\roslyn\System.Reflection.Metadata.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\roslyn\vbc.exe
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\roslyn\VBCSCompiler.exe
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\roslyn\VBCSCompiler.exe.config
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\TeacherApplication.dll.config
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\TeacherApplication.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\TeacherApplication.pdb
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\Microsoft.AI.Agent.Intercept.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\Microsoft.AI.DependencyCollector.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\Microsoft.AI.Web.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\Microsoft.AI.WindowsServer.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\Microsoft.ApplicationInsights.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\Microsoft.Web.Infrastructure.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\System.Web.Helpers.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\System.Web.Mvc.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\System.Web.Razor.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\System.Web.Webpages.Deployment.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\System.Web.Webpages.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\System.Web.Webpages.Razor.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\Microsoft.AI.DependencyCollector.xml
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\Microsoft.AI.Web.xml
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\Microsoft.AI.WindowsServer.xml
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\Microsoft.ApplicationInsights.xml
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\System.Web.Razor.xml
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\System.Web.Webpages.xml
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\System.Web.Webpages.Deployment.xml
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\System.Web.Webpages.Razor.xml
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\System.Web.Helpers.xml
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\System.Web.Mvc.xml
+E:\Forteachers\TeacherApplication\TeacherApplication\obj\Debug\TeacherApplication.csprojResolveAssemblyReference.cache
+E:\Forteachers\TeacherApplication\TeacherApplication\obj\Debug\TeacherApplication.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\obj\Debug\TeacherApplication.pdb
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\Data Access.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\Domain.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\EntityFramework.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\EntityFramework.SqlServer.dll
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\Data Access.pdb
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\Domain.pdb
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\EntityFramework.xml
+E:\Forteachers\TeacherApplication\TeacherApplication\bin\EntityFramework.SqlServer.xml
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\ApplicationInsights.config
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\roslyn\csc.exe
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\roslyn\System.Collections.Immutable.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\roslyn\System.Reflection.Metadata.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\roslyn\vbc.exe
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\roslyn\VBCSCompiler.exe
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\roslyn\VBCSCompiler.exe.config
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\TeacherApplication.dll.config
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\TeacherApplication.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\TeacherApplication.pdb
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Data Access.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Domain.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\EntityFramework.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\EntityFramework.SqlServer.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.AI.DependencyCollector.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.AI.Web.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.AI.WindowsServer.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.ApplicationInsights.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.Web.Infrastructure.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Helpers.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Mvc.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Razor.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Webpages.Deployment.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Webpages.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Webpages.Razor.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Data Access.pdb
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Domain.pdb
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\EntityFramework.xml
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\EntityFramework.SqlServer.xml
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.AI.DependencyCollector.xml
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.AI.Web.xml
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.AI.WindowsServer.xml
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.ApplicationInsights.xml
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Razor.xml
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Webpages.xml
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Webpages.Deployment.xml
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Webpages.Razor.xml
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Helpers.xml
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Mvc.xml
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\obj\Debug\TeacherApplication.csprojResolveAssemblyReference.cache
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\obj\Debug\TeacherApplication.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\obj\Debug\TeacherApplication.pdb
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Antlr3.Runtime.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Newtonsoft.Json.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Optimization.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\WebGrease.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Antlr3.Runtime.pdb
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Newtonsoft.Json.xml
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Optimization.xml
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Http.WebHost.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Http.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Net.Http.Formatting.dll
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Http.WebHost.xml
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Http.xml
+D:\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Net.Http.Formatting.xml
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\ApplicationInsights.config
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\roslyn\csc.exe
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\roslyn\System.Collections.Immutable.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\roslyn\System.Reflection.Metadata.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\roslyn\vbc.exe
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\roslyn\VBCSCompiler.exe
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\roslyn\VBCSCompiler.exe.config
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\TeacherApplication.dll.config
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\TeacherApplication.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\TeacherApplication.pdb
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Antlr3.Runtime.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Data Access.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Domain.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\EntityFramework.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\EntityFramework.SqlServer.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.AI.Agent.Intercept.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.AI.DependencyCollector.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.AI.Web.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.AI.WindowsServer.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.ApplicationInsights.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.Web.Infrastructure.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Newtonsoft.Json.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Helpers.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Http.WebHost.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Mvc.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Optimization.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Razor.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Webpages.Deployment.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Webpages.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Webpages.Razor.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\WebGrease.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Http.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Net.Http.Formatting.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Data Access.pdb
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Domain.pdb
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Antlr3.Runtime.pdb
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\EntityFramework.xml
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\EntityFramework.SqlServer.xml
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.AI.DependencyCollector.xml
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.AI.Web.xml
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.AI.WindowsServer.xml
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.ApplicationInsights.xml
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Newtonsoft.Json.xml
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Http.WebHost.xml
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Optimization.xml
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Razor.xml
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Webpages.xml
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Webpages.Deployment.xml
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Webpages.Razor.xml
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Helpers.xml
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Mvc.xml
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Web.Http.xml
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\System.Net.Http.Formatting.xml
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\obj\Debug\TeacherApplication.csprojResolveAssemblyReference.cache
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\obj\Debug\TeacherApplication.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\obj\Debug\TeacherApplication.pdb
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\HtmlAgilityPack.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\HtmlAgilityPack.pdb
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\HtmlAgilityPack.xml
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\ApplicationInsights.config
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\roslyn\csc.exe
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\roslyn\vbc.exe
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\roslyn\VBCSCompiler.exe
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\TeacherApplication.dll.config
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\TeacherApplication.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\TeacherApplication.pdb
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\Antlr3.Runtime.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\Data Access.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\Domain.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\EntityFramework.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\EntityFramework.SqlServer.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\HtmlAgilityPack.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\Microsoft.AI.Web.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\Microsoft.ApplicationInsights.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\Newtonsoft.Json.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\System.Web.Helpers.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\System.Web.Mvc.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\System.Web.Optimization.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\System.Web.Razor.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\System.Web.Webpages.Deployment.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\System.Web.Webpages.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\System.Web.Webpages.Razor.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\WebGrease.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\System.Web.Http.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\System.Net.Http.Formatting.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\Data Access.pdb
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\Domain.pdb
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\Domain.dll.config
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\Antlr3.Runtime.pdb
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\EntityFramework.xml
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\EntityFramework.SqlServer.xml
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\HtmlAgilityPack.pdb
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\HtmlAgilityPack.xml
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\Microsoft.AI.Web.xml
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\Microsoft.ApplicationInsights.xml
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\Newtonsoft.Json.xml
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\System.Web.Optimization.xml
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\System.Web.Razor.xml
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\System.Web.Webpages.xml
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\System.Web.Webpages.Deployment.xml
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\System.Web.Webpages.Razor.xml
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\System.Web.Helpers.xml
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\System.Web.Mvc.xml
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\obj\Debug\TeacherApplication.csprojResolveAssemblyReference.cache
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\obj\Debug\TeacherApplication.dll
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\obj\Debug\TeacherApplication.pdb
+C:\Users\mf\Downloads\TeacherApplication\TeacherApplication\bin\System.Web.Http.WebHost.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.Owin.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Owin.dll
+E:\D Drive\Sandeep Mvn\ProjectSupport\TeacherApplication\TeacherApplication\bin\Microsoft.Owin.xml
+C:\weddings\TeacherApplication\bin\ApplicationInsights.config
+C:\weddings\TeacherApplication\bin\roslyn\csc.exe
+C:\weddings\TeacherApplication\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\weddings\TeacherApplication\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\weddings\TeacherApplication\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\weddings\TeacherApplication\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\weddings\TeacherApplication\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\weddings\TeacherApplication\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\weddings\TeacherApplication\bin\roslyn\System.Collections.Immutable.dll
+C:\weddings\TeacherApplication\bin\roslyn\System.Reflection.Metadata.dll
+C:\weddings\TeacherApplication\bin\roslyn\vbc.exe
+C:\weddings\TeacherApplication\bin\roslyn\VBCSCompiler.exe
+C:\weddings\TeacherApplication\bin\roslyn\VBCSCompiler.exe.config
+C:\weddings\TeacherApplication\bin\TeacherApplication.dll.config
+C:\weddings\TeacherApplication\bin\TeacherApplication.dll
+C:\weddings\TeacherApplication\bin\TeacherApplication.pdb
+C:\weddings\TeacherApplication\bin\Antlr3.Runtime.dll
+C:\weddings\TeacherApplication\bin\Data Access.dll
+C:\weddings\TeacherApplication\bin\Domain.dll
+C:\weddings\TeacherApplication\bin\EntityFramework.dll
+C:\weddings\TeacherApplication\bin\EntityFramework.SqlServer.dll
+C:\weddings\TeacherApplication\bin\HtmlAgilityPack.dll
+C:\weddings\TeacherApplication\bin\Microsoft.AI.Agent.Intercept.dll
+C:\weddings\TeacherApplication\bin\Microsoft.AI.DependencyCollector.dll
+C:\weddings\TeacherApplication\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\weddings\TeacherApplication\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\weddings\TeacherApplication\bin\Microsoft.AI.Web.dll
+C:\weddings\TeacherApplication\bin\Microsoft.AI.WindowsServer.dll
+C:\weddings\TeacherApplication\bin\Microsoft.ApplicationInsights.dll
+C:\weddings\TeacherApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\weddings\TeacherApplication\bin\Microsoft.Owin.dll
+C:\weddings\TeacherApplication\bin\Microsoft.Web.Infrastructure.dll
+C:\weddings\TeacherApplication\bin\Newtonsoft.Json.dll
+C:\weddings\TeacherApplication\bin\Owin.dll
+C:\weddings\TeacherApplication\bin\System.Net.Http.Formatting.dll
+C:\weddings\TeacherApplication\bin\System.Web.Helpers.dll
+C:\weddings\TeacherApplication\bin\System.Web.Http.dll
+C:\weddings\TeacherApplication\bin\System.Web.Http.WebHost.dll
+C:\weddings\TeacherApplication\bin\System.Web.Mvc.dll
+C:\weddings\TeacherApplication\bin\System.Web.Optimization.dll
+C:\weddings\TeacherApplication\bin\System.Web.Razor.dll
+C:\weddings\TeacherApplication\bin\System.Web.Webpages.Deployment.dll
+C:\weddings\TeacherApplication\bin\System.Web.Webpages.dll
+C:\weddings\TeacherApplication\bin\System.Web.Webpages.Razor.dll
+C:\weddings\TeacherApplication\bin\WebGrease.dll
+C:\weddings\TeacherApplication\bin\Data Access.pdb
+C:\weddings\TeacherApplication\bin\Domain.pdb
+C:\weddings\TeacherApplication\bin\Domain.dll.config
+C:\weddings\TeacherApplication\bin\Antlr3.Runtime.pdb
+C:\weddings\TeacherApplication\bin\EntityFramework.xml
+C:\weddings\TeacherApplication\bin\EntityFramework.SqlServer.xml
+C:\weddings\TeacherApplication\bin\HtmlAgilityPack.pdb
+C:\weddings\TeacherApplication\bin\HtmlAgilityPack.xml
+C:\weddings\TeacherApplication\bin\Microsoft.AI.DependencyCollector.xml
+C:\weddings\TeacherApplication\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\weddings\TeacherApplication\bin\Microsoft.AI.Web.xml
+C:\weddings\TeacherApplication\bin\Microsoft.AI.WindowsServer.xml
+C:\weddings\TeacherApplication\bin\Microsoft.ApplicationInsights.xml
+C:\weddings\TeacherApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\weddings\TeacherApplication\bin\Microsoft.Owin.xml
+C:\weddings\TeacherApplication\bin\Newtonsoft.Json.xml
+C:\weddings\TeacherApplication\bin\System.Net.Http.Formatting.xml
+C:\weddings\TeacherApplication\bin\System.Web.Http.xml
+C:\weddings\TeacherApplication\bin\System.Web.Http.WebHost.xml
+C:\weddings\TeacherApplication\bin\System.Web.Optimization.xml
+C:\weddings\TeacherApplication\bin\System.Web.Razor.xml
+C:\weddings\TeacherApplication\bin\System.Web.Webpages.xml
+C:\weddings\TeacherApplication\bin\System.Web.Webpages.Deployment.xml
+C:\weddings\TeacherApplication\bin\System.Web.Webpages.Razor.xml
+C:\weddings\TeacherApplication\bin\System.Web.Helpers.xml
+C:\weddings\TeacherApplication\bin\System.Web.Mvc.xml
+C:\weddings\TeacherApplication\obj\Debug\TeacherApplication.csprojAssemblyReference.cache
+C:\weddings\TeacherApplication\obj\Debug\TeacherApplication.csproj.CoreCompileInputs.cache
+C:\weddings\TeacherApplication\obj\Debug\TeacherApplication.csproj.CopyComplete
+C:\weddings\TeacherApplication\obj\Debug\TeacherApplication.dll
+C:\weddings\TeacherApplication\obj\Debug\TeacherApplication.pdb
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\ApplicationInsights.config
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\roslyn\csc.exe
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\roslyn\vbc.exe
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\roslyn\VBCSCompiler.exe
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\TeacherApplication.dll.config
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\TeacherApplication.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\TeacherApplication.pdb
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Antlr3.Runtime.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Data Access.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Domain.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\EntityFramework.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\EntityFramework.SqlServer.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\HtmlAgilityPack.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Microsoft.AI.Web.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Microsoft.ApplicationInsights.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Microsoft.Owin.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Newtonsoft.Json.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Owin.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\System.Net.Http.Formatting.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\System.Web.Helpers.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\System.Web.Http.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\System.Web.Http.WebHost.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\System.Web.Mvc.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\System.Web.Optimization.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\System.Web.Razor.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\System.Web.Webpages.Deployment.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\System.Web.Webpages.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\System.Web.Webpages.Razor.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\WebGrease.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Data Access.pdb
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Domain.pdb
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Domain.dll.config
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Antlr3.Runtime.pdb
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\EntityFramework.xml
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\EntityFramework.SqlServer.xml
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\HtmlAgilityPack.pdb
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\HtmlAgilityPack.xml
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Microsoft.AI.Web.xml
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Microsoft.ApplicationInsights.xml
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Microsoft.Owin.xml
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\Newtonsoft.Json.xml
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\System.Net.Http.Formatting.xml
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\System.Web.Http.xml
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\System.Web.Http.WebHost.xml
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\System.Web.Optimization.xml
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\System.Web.Razor.xml
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\System.Web.Webpages.xml
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\System.Web.Webpages.Deployment.xml
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\System.Web.Webpages.Razor.xml
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\System.Web.Helpers.xml
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\bin\System.Web.Mvc.xml
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\obj\Debug\TeacherApplication.csprojAssemblyReference.cache
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\obj\Debug\TeacherApplication.csproj.CoreCompileInputs.cache
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\obj\Debug\TeacherApplication.csproj.CopyComplete
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\obj\Debug\TeacherApplication.dll
+C:\Users\rehab\Downloads\siva\weddings\TeacherApplication\obj\Debug\TeacherApplication.pdb

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Domain.LoginHistory>
+
+@{
+    ViewBag.Title = "LoginHistory";
+    Layout = "~/Views/Shared/_AdminNewLayout.cshtml";
+    //Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="container">
+    <table class="table table-striped table-responsive table-full-width">
+        <tr class="success">
+            <th>
+                @Html.DisplayNameFor(model => model.UserProfile.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IPAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LoginDate)
+            </th>
+
+            @*<th></th>*@
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserProfile.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IPAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LoginDate)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

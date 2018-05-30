@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Domain.UserIndex>
+<div class="section-content portfolio-page standart">
+    @if (Model.Count() > 0)
+    {
+        <div class="container">
+            <div class="heading-block">
+                <h2 class="heading center">@*Teachers*@</h2>
+            </div>
+            <div class="portfolio-box masonry col-4">
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        string path = "~/Images/noimage.jpg";
+                        string url = Url.Content((item.PhotoUrl == null) ? path : item.PhotoUrl);
+                        <div class="work-post @item.PKUserId">
+                            <img style="height: 200px;" src='@url' alt="Wedding,Chef,Dress,DJ,Stage,Photographer,Limosouine,Salon,GuestHouse">
+                            <span class="rating" hidden>@item.Rating</span>
+                            <div class="hover-box">
+                                <div class="inner-hover">
+                                    <h2>Name:&nbsp @item.TeacherName</h2>
+                                    <h2>Location:&nbsp @item.Location</h2>
+                                    <h2>Category Name: @item.SubjectName</h2>
+                                    <span id="Teacherid" hidden>@item.Teacherid</span>
+                                    <a class="link" href='@Url.Action("UserDetails", new { id = item.ClassId })'><i class="fa fa-search"></i></a>
+                                </div>
+                            </div>
+                            <h6 class="rateyorating" style="margin-left: 18px;"></h6>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 align="center">No Results found</h1>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<link href="~/Content/jquery.rateyo.min.css" rel="stylesheet" />
+<script src="~/scripts/jquery.rateyo.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".rating").each(function () {
+            var val = $(this).html();
+            $(this).parent("div").find('.rateyorating').rateYo({
+                rating: val,
+                readOnly: true
+            });
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#SortByRating").change(function () {
+            var sort = $("#SortByRating").val();
+            if (sort == "SortByRating") {
+                return;
+            }
+            else {
+                $("#Sorting").submit();
+            }
+        })
+    })
+</script>

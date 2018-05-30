@@ -1,0 +1,56 @@
+﻿@model Domain.UserImage
+
+@{
+    ViewBag.Title = "EditTeacherImages";
+    //Layout = "~/Views/Shared/_TeacherLayout.cshtml";
+    Layout = "~/Views/Shared/_TeacherNewLayout.cshtml";
+}
+
+<h2>EditTeacherImage</h2>
+
+
+@using (Html.BeginForm("EditTeacherImages","Teacher",FormMethod.Post,new { enctype = "multipart/form-data" }))
+{
+   
+
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.PKUserImageId)
+        @Html.HiddenFor(model => model.FKClassId)
+        @Html.HiddenFor(model => model.VideoUrl)
+        @Html.HiddenFor(model => model.ImageName)
+        @Html.HiddenFor(model=>model.ImageUrl)
+
+
+
+        <div class="form-group">
+            <label class = "control-label col-md-2">Image</label>
+            <div class="col-md-10">
+                <img src="@Model.ImageUrl" class="img-rounded" style="width:100px;height:100px" />
+                <span>@Model.ImageName</span>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImageUrl,"Edit Image", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="image" />
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-4 col-md-8">
+                <input type="submit" value="Save" class="w3-button w3-white w3-border w3-border-blue w3-round-large" />
+                <a href="/Teacher/TeacherImages?classId=4"><input type="button" value="Cancel" class="w3-button w3-white w3-border w3-border-red w3-round-large" /></a>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

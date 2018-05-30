@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Domain.AvailableTeacherTime>
+
+
+@{
+    ViewBag.Title = "AvailableTeacherTime";
+    //Layout = "~/Views/Shared/_TeacherLayout.cshtml";
+    Layout = "~/Views/Shared/_TeacherNewLayout.cshtml";
+}
+
+
+<table class="table table-bordered table-responsive w3-hoverable w3-white">
+    <tr class="success">
+        <th>
+            @Html.DisplayName("Category Name")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FromAvailableDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToAvailableDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FromAvailableTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToAvailableTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Class.ClassName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FromAvailableDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToAvailableDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FromAvailableTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ToAvailableTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+       
+        <td>
+            <a href="/Teacher/EditTeacherAvailableTime/@item.PKAvailableTeacherTimeId"><input type="button" value="Edit" class="w3-button w3-white w3-border w3-border-blue w3-round-large" /></a>
+            @*<a href="/Teacher/Details/@item.PKAvailableTeacherTimeId"><input type="button" value="Details" class="btn btn-info" /></a>*@
+            <a href="/Teacher/DeleteAvailableTeacherTime/@item.PKAvailableTeacherTimeId"><input type="button" value="Delete" class="w3-button w3-white w3-border w3-border-red w3-round-large" /></a>
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,95 @@
+﻿@model Domain.Class
+
+@{
+    ViewBag.Title = "EditClass";
+    //Layout = "~/Views/Shared/_TeacherLayout.cshtml";
+    Layout = "~/Views/Shared/_TeacherNewLayout.cshtml";
+}
+
+<h2>Edit Class</h2>
+<div class="text-center">
+    <a href="@Url.Action("TeacherImages","Teacher",new {classId=Model.PKClassId })"><input class="w3-button w3-teal" type="button" value="Edit Images" /></a>
+    <a href="@Url.Action("TeacherVideos","Teacher",new {id=Model.PKClassId })"><input type="button" value="Edit Videos" class="w3-button w3-border-blue w3-teal" /></a>
+</div>
+
+@using (Html.BeginForm("EditClass", "Teacher", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.PKClassId)
+        @Html.HiddenFor(model=>model.FKUserId)
+        @Html.HiddenFor(model=>model.IsApproved)
+        @Html.HiddenFor(model=>model.ClassImage)
+
+        <div class="form-group">
+            @Html.Label("State", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.DropDownList("States", ViewBag.States as SelectList, "Please Select State", htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("City", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.DropDownList("FKCityId", ViewBag.Cities as SelectList, "Please Select City", htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ClassName,"Category Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.ClassName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ClassName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.FKSubjectId, "Subject Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-6">
+                @Html.DropDownListFor(model => model.FKSubjectId, ViewBag.Subject as SelectList, "Select Subject",new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FKSubjectId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+       
+        <div class="form-group">
+            <label class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <img src="@Model.ClassImage" class="img-rounded" style="width:100px;height:100px" />
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="w3-button w3-white w3-border w3-border-blue w3-round-large" />
+                <a href='@Url.Action("Classes","Teacher")'><input type="button" class="w3-button w3-white w3-border w3-border-red w3-round-large" value="Cancel"/></a>
+            </div>
+        </div>
+    </div>
+
+}
+
+<div>
+    
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#States option[value=" +@ViewBag.stateId+ "]").attr("selected", "selected");
+            $('#States').change(function () {
+                var id = $('#States').val();
+                $.getJSON("/User/GetCities?stateId=" + id, function (data) {
+                    $("#FKCityId").empty();
+                    $.each(data, function (key, item) {
+                        $("#FKCityId").append($("<option></option>").val(item.PKCityId).html(item.CityName));
+                    });
+                })
+            })
+        });
+    </script>
+}
+

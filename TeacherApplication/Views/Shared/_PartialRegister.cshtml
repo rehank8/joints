@@ -1,0 +1,173 @@
+﻿<div id="registerModal" class="modal fade" role="form" style="padding-top:30px">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#f5511e">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" style="color:White">Register</h4>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("Registration", "Account", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.Hidden("Latitude")
+                        @Html.Hidden("Longitude")
+                        <div class="form-group">
+                            @Html.Label("FKRoleId", "AccountType", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("FKRoleId", ViewBag.Roles as SelectList, "Select AccountType", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessage("FKRoleId", "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("UserName", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" pattern="[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" id="UserName" name="UserName" data-val="true" data-val-required="Please enter the Name" placeholder="Name" required>
+                                <span class="field-validation-valid"
+                                      data-valmsg-for="UserName"
+                                      data-valmsg-replace="true"
+                                      style="color:red"></span>
+                                @*@Html.TextBox("UserName", null, new { @class = "form-control" })
+                                    @Html.ValidationMessage("UserName", "", new { @class = "text-danger" })*@
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("Password", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <input type="password" class="form-control" id="Password" name="Password" placeholder="Enter Password" data-val="true" data-val-required="Please enter the Password" required>
+                                <span class="field-validation-valid"
+                                      data-valmsg-for="Password"
+                                      data-valmsg-replace="true"
+                                      style="color:red"></span>
+                                @*@Html.Password("Password", null, new { @class = "form-control" })
+                                    @Html.ValidationMessage("Password", "", new { @class = "text-danger" })*@
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("PhoneNo", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <input type="text" id="regPhoneNo" name="PhoneNo" placeholder="Phone No" data-val="true" data-val-required="Contact Number Required" data-val-regex="Please enter 10 Numbers without Alphabets and Spaces" , data-val-regex-pattern="\d{10}" class="form-control" />
+                                <span class="field-validation-valid" data-valmsg-for="PhoneNo" data-valmsg-replace="true" style="color:red"></span>
+                                @*@Html.TextBox("PhoneNo", null, new { @class = "form-control" })
+                                    @Html.ValidationMessage("PhoneNo", "", new { @class = "text-danger" })*@
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("EmailId", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <input type="email" pattern="^[a-zA-Z0-9._+-]+&#64;[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" id="EmailId" name="EmailId" placeholder="Email Id" data-val="true" data-val-required="Please enter the Email" required class="form-control">
+                                <span class="field-validation-valid"
+                                      data-valmsg-for="EmailId"
+                                      data-valmsg-replace="true"
+                                      style="color:red"></span>
+                                @*@Html.TextBox("EmailId", null, new { @class = "form-control" })
+                                    @Html.ValidationMessage("EmailId", "", new { @class = "text-danger" })*@
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+
+                            @Html.Label("Address", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="Address" name="Address" data-val="true" data-val-required="Please enter the Address" placeholder="Address" required>
+                                <span class="field-validation-valid"
+                                      data-valmsg-for="Address"
+                                      data-valmsg-replace="true"
+                                      style="color:red"></span>
+                                @*@Html.TextBox("Address", null, new { @class = "form-control" })
+                                    @Html.ValidationMessage("Address", "", new { @class = "text-danger" })*@
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.Label("Country", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="Country" name="Country" data-val="true" data-val-required="Please enter the Country" placeholder="Country" required>
+                                <span class="field-validation-valid"
+                                      data-valmsg-for="Country"
+                                      data-valmsg-replace="true"
+                                      style="color:red"></span>
+                                @*@Html.TextBox("Country", null, new { @class = "form-control" })*@
+                                @*@Html.ValidationMessage("Country", "", new { @class = "text-danger" })*@
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            @Html.Label("State", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="State" name="State" data-val="true" data-val-required="Please enter the State" placeholder="State" required>
+                                <span class="field-validation-valid"
+                                      data-valmsg-for="State"
+                                      data-valmsg-replace="true"
+                                      style="color:red"></span>
+                                @*@Html.TextBox("State", null, new { @class = "form-control" })
+                                    @Html.ValidationMessage("State", "", new { @class = "text-danger" })*@
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("City", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="City" name="City" data-val="true" data-val-required="Please enter the City" placeholder="City" required>
+                                <span class="field-validation-valid"
+                                      data-valmsg-for="City"
+                                      data-valmsg-replace="true"
+                                      style="color:red"></span>
+                                @*@Html.TextBox("City", null, new { @class = "form-control" })
+                                    @Html.ValidationMessage("City", "", new { @class = "text-danger" })*@
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            @Html.Label("ZipCode", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <input type="number" class="form-control"  id="ZipCode" name="ZipCode" data-val="true" data-val-required="Please enter the ZipCode" placeholder="ZipCode" required>
+                               
+                                @*@Html.TextBox("ZipCode", null, new { @class = "form-control" })
+                                    @Html.ValidationMessage("ZipCode", "", new { @class = "text-danger" })*@
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Register" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    $(document).ready(function () {
+        getLocation();
+    });
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+    function showPosition(position) {
+        $('#Latitude').val(position.coords.latitude);
+        $('#Longitude').val(position.coords.longitude);
+    }
+</script>

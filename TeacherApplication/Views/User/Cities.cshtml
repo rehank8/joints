@@ -1,0 +1,65 @@
+﻿@model Domain.UserProfile
+
+@{
+    ViewBag.Title = "Cities";
+    Layout = "~/Views/Shared/_Userlayout.cshtml";
+}
+
+<div class="modal fade" id="myModal" role="search">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <a class="close" data-dismiss="modal">X</a>
+                <h3>Please Select City</h3>
+            </div>
+            <div class="modal-body">
+                <p>Hello</p>
+                @using (Html.BeginForm("Index", "User", FormMethod.Get))
+                {
+                    <div class="form-horizontal">
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.Label("State", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("States", ViewBag.State as SelectList, "Please Select State", htmlAttributes: new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.Label("City", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("Cities", ViewBag.Cities as SelectList, "Please Select City", htmlAttributes: new { @class = "form-control" })
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Submit" class="btn btn-success" style="margin-top: 6px; margin-left: 11px;" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div>
+    <p class="text-center text-danger" style="font-size:50px"> Please Select City</p>
+</div>
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#myModal').modal('show');
+
+        });
+        //$(window).load(function () {
+        //    $('#myModal').modal('show');
+        //});
+    </script>
+}

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Domain.UserIndex>
+@{ 
+
+    IEnumerable<Domain.UserIndex> lstUserIndex = Data_Access.DbHelper.GetTeachersForHome();
+}
+
+<div id="content">
+    <div class="section-content portfolio-page standart">
+        @if (lstUserIndex!=null)
+        {
+            
+            <div class="container">
+                <div class="heading-block">
+                    <h2 class="heading center">Teachers</h2>
+                </div>
+                <div class="portfolio-box masonry col-4" style="margin-left: 42px;">
+                    @if (lstUserIndex != null)
+                    {
+                        foreach (var item in lstUserIndex)
+                        {
+                            string path = "~/Images/noimage.jpg";
+                            string url = Url.Content((item.PhotoUrl == null) ? path : item.PhotoUrl);
+                            <div class="work-post @item.PKUserId">
+                                <img style="height: 200px;" src='@url' alt="">
+                                <div class="hover-box">
+                                    <div class="inner-hover">
+                                        <h2>Teacher Name:&nbsp @item.TeacherName</h2>
+                                        <h2>SubjectName:&nbsp @item.SubjectName</h2>
+                                        <h2>Experience:&nbsp @item.Experience</h2>
+                                        <span id="fromDate" hidden>@item.AvailableDate</span>
+                                        <span id="toDate" hidden>@item.ToDate</span>
+                                        <span id="fromTime" hidden>@item.AvailableTime</span>
+                                        <span id="toTime" hidden>@item.ToTime</span>
+                                        <button class="btn btn-info btnDate">AvailableDate</button>
+                                        <a class="link" href='@Url.Action("UserDetails", new { id = item.PKUserId })'><i class="fa fa-search"></i></a>
+                                       
+                                        </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+
+            </div>
+
+        }
+        else
+        {
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="field-validation-error" align="center">No Teacher found for your postal code</h3>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+
+</div>

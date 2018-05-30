@@ -1,0 +1,140 @@
+﻿@model IEnumerable<Domain.City>
+
+@{
+    ViewBag.Title = "Cities";
+    Layout = "~/Views/Shared/_AdminNewLayout.cshtml";
+    //Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    .icons {
+        display: none;
+    }
+</style>
+<div class="container">
+    <div class="header">
+        <p class="category"><button type="button" class="btn btn-info btnAdd" data-toggle="modal" data-target="#myModal">Add City</button></p>
+    </div>
+    <table class="table table-striped table-responsive table-full-width">
+
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CityName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.State.StateName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CityName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsActive)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.State.StateName)
+                </td>
+                <td class="text-center">
+                    <button class="btn btn-primary btnEdit" data-toggle="modal" data-target="#myModal">Edit City</button>
+                    @Html.HiddenFor(modelItem => item.PKCityId, new { @class = "cityId" })
+                    <a href="@Url.Action("DeleteCity",new {id=item.PKCityId })"><input type="button" value="Delete" class="btn btn-danger" /></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<div id="myModal" class="modal fade" role="form">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add City</h4>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("CreateandEditCity", "Admin"))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.Hidden("PKCityId")
+                        <div class="form-group">
+                            @Html.Label("States", "State-Name", htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-7">
+                                @Html.DropDownList("FKStateId", ViewBag.States as SelectList, "Select State")
+                                @Html.ValidationMessage("FKStateId", "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("CityName", "City Name", htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-7">
+                                @Html.Editor("CityName", new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessage("CityName", "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            @Html.Label("IsActive", "Active", htmlAttributes: new { @class = "control-label col-md-3" })
+                            <div class="col-md-7">
+                                <div class="checkbox">
+                                    <input type="checkbox" name="IsActive" id="IsActive" />
+                                    @Html.ValidationMessage("IsActive", "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="btn btn-success" />
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btnClose" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Scripts{
+    <script src="~/scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.btnEdit').click(function () {
+                var id = $(this).nextAll(".cityId").val();
+
+                $.getJSON("/Admin/EditCity/" + id, function (data) {
+                    $("#FKStateId option[value=" + data.FKStateId + "]").attr("selected", "selected");
+                    $('#CityName').val(data.CityName);
+                    $('#IsActive').prop('checked', data.IsActive);
+                    $('#PKCityId').val(data.PKCityId);
+                })
+                $('.btnAdd').click(function () {
+                    $("#FKStateId option[value=" + 1 + "]").attr("selected", "selected");
+                    $('#CityName').val("");
+                    $('#IsActive').prop('checked', false);
+                    $('#PKCityId').val(0);
+                })
+            });
+
+        })
+    </script>
+}

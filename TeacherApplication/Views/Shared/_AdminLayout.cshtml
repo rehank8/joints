@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Adminlayoutstyles.css" rel="stylesheet" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <style>
+        @@font-face {
+            font-family: 'Proxima Nova W01 Regular It';
+            src: url('../../fonts/Proxima Nova W01 Regular It.ttf') format('truetype');
+        }
+
+        body {
+            font-family: 'Proxima Nova W01 Regular It',Arial,sans-serif;
+        }
+    </style>
+</head>
+<body style="padding-top: 0px;">
+    <div class="navbar navbar-inverse navbar-fixed-left" style="width: 170px;">
+        <a class="navbar-brand" href="/Admin/Index">For Teacher</a>
+        <ul class="nav navbar-nav">
+            @{
+                string photo = Data_Access.DbHelper.GetUserProfile(Helper.UserId).PhotoUrl;
+                string path = "~/Images/noimage.jpg";
+                string url = Url.Content((photo == null) ? path : photo);
+            }
+            <li><a href="@Url.Action("UserProfile","Admin",new { id = Helper.UserId })" class="text-center"><img src="@url" class="img-circle img-responsive" style="max-height:120px ;max-width:120px" /> Change</a></li>
+            <li><h3 class="alert-info">Hello @Helper.UserName</h3></li>
+            <li><a href='@Url.Action("States","Admin")'>States</a></li>
+            <li><a href='@Url.Action("Cities","Admin")'>cities</a></li>
+            <li><a href='@Url.Action("Subjects","Admin")'>Subjects</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profiles <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href='@Url.Action("UserProfiles","Admin")'>User Profiles</a></li>
+                    <li><a href='@Url.Action("TeacherProfile","Admin")'>Teacher Profile</a></li>
+                </ul>
+            </li>
+            <li><a href='@Url.Action("AvailableTeacherTime","Admin")'>Teacher<i class="glyphicon glyphicon-time "> </i></a></li>
+            <li><a href='@Url.Action("Class","Admin")'>Class</a></li>
+            <li><a href='@Url.Action("LoginHistory","Admin")'>Login History</a></li>
+            <li><a href='@Url.Action("UserEnquires","Admin")'>Enquiries</a></li>
+            <li><a href='@Url.Action("LogOut","Account")'>Logout</a></li>
+        </ul>
+    </div>
+    <div class="container body-content">
+        <div class="text-center">
+            @RenderBody()
+        </div>
+        <footer>
+            &copy;CopyRights  @DateTime.Now.Year
+        </footer>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

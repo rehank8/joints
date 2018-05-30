@@ -1,0 +1,21 @@
+﻿#background {
+    height: 25vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    /*background: url("../Images/backgroundbook.gif ") left center; background-size: cover;*/
+}
+.container h1 {
+  color: white;
+}
+
+.fontdetails{
+    font-family: Montserrat, sans-serif;
+}

@@ -1,0 +1,125 @@
+﻿@model Domain.UserEnquiry
+
+@{
+    ViewBag.Title = "SuccessPage";
+    Layout = "~/Views/Shared/_UserDetails.cshtml";
+}
+@*<div>
+    <h4>UserEnquiry</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BookedFromDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookedFromDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookedToDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookedToDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookedFromTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookedFromTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookedToTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookedToTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FollowUP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FollowUP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AvailableTeacherTime.PKAvailableTeacherTimeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AvailableTeacherTime.PKAvailableTeacherTimeId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Class.ClassName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Class.ClassName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeacherProfile.Experience)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeacherProfile.Experience)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserProfile.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserProfile.UserName)
+        </dd>
+
+    </dl>
+</div>*@
+@if (Model.FKUserId!=0)
+{
+<div class="container">
+    <div class="row text-center">
+        <div class="col-sm-6 col-sm-offset-3">
+            <br><br> <h2 style="color:#0fad00">Success</h2>
+            <img src="http://osmhotels.com//assets/check-true.jpg">
+            <h3>Dear, @Helper.UserName</h3>
+            <p style="font-size:20px;color:#5C5C5C;">
+                Thank you for Booking the Teacher .We have sent you an email "@Helper.EmailId" with your details
+                Please go to your above email now and login.
+            </p>
+            <a href="" class="@Url.Action("Index")"> <input type="button" class="btn btn-success" value="Close"/></a>
+            <br><br>
+        </div>
+        
+    </div>
+</div>
+
+}
+else
+{
+<h1 class="text-center text-danger" >Session Expired</h1>
+
+}

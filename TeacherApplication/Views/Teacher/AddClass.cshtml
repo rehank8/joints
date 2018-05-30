@@ -1,0 +1,248 @@
+﻿@model TeacherApplication.Models.Category
+
+@{
+    ViewBag.Title = "AddClass";
+    Layout = "~/Views/Shared/_TeacherLayout.cshtml";
+}
+
+<h2 class="text-center">Add Category</h2>
+
+<div style="margin-left:20px">
+    @using (Html.BeginForm("AddClass", "Teacher", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="row">
+            <div id="alert" class="alert alert-warning hidden">
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.Label("State", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("States", ViewBag.States as SelectList, "Please Select State", htmlAttributes: new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group" style="display:none">
+                        @Html.Label("City", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("Class.FKCityId", ViewBag.Cities as SelectList, "Please Select City", htmlAttributes: new { @class = "form-control", id = "FKCityId" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Class.AreaName, "Area Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Class.AreaName, new { htmlAttributes = new { @class = "form-control", placeholder = "Please enter Area name", required = "required" } })
+                            @Html.ValidationMessageFor(model => model.Class.AreaName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Class.FKSubjectId, "Category Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.Class.FKSubjectId, ViewBag.Subject as SelectList, "Select Category", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Class.FKSubjectId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="display:none">
+                        @Html.LabelFor(model => model.Class.ClassImage, "Category Image", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-6">
+                            <input type="file" name="classImg" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Class.ClassName, "Bussiness Name", htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.Class.ClassName, new { htmlAttributes = new { @class = "form-control", placeholder = "Please enter level name", required = "required" } })
+                            @Html.ValidationMessageFor(model => model.Class.ClassName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TeacherProfile.Experience, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.TeacherProfile.Experience, new { htmlAttributes = new { @class = "form-control", type = "number", placeholder = "Please enter experience", required = "required" } })
+                            @Html.ValidationMessageFor(model => model.TeacherProfile.Experience, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TeacherProfile.Description, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.TeacherProfile.Description, new { htmlAttributes = new { @class = "form-control", placeholder = "Please enter description", required = "required" } })
+                            @Html.ValidationMessageFor(model => model.TeacherProfile.Description, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <div class="form-horizontal">
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AvalilableTeacher.FromAvailableDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.AvalilableTeacher.FromAvailableDate, new { @class = "form-control Date", placeholder = "Please enter available from date", required = "required" })
+                            @Html.ValidationMessageFor(model => model.AvalilableTeacher.FromAvailableDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AvalilableTeacher.ToAvailableDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.AvalilableTeacher.ToAvailableDate, new { @class = "form-control Date", placeholder = "Please enter available to date", required = "required" })
+                            @Html.ValidationMessageFor(model => model.AvalilableTeacher.ToAvailableDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AvalilableTeacher.FromAvailableTime, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.AvalilableTeacher.FromAvailableTime, new { htmlAttributes = new { @class = "form-control Time", placeholder = "Please enter available from time", required = "required" } })
+                            @Html.ValidationMessageFor(model => model.AvalilableTeacher.FromAvailableTime, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AvalilableTeacher.ToAvailableTime, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.AvalilableTeacher.ToAvailableTime, new { htmlAttributes = new { @class = "form-control Time", placeholder = "Please enter available to time", required = "required" } })
+                            @Html.ValidationMessageFor(model => model.AvalilableTeacher.ToAvailableTime, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <p class="text-center"><i class="fa fa-edit"></i> You Upload up to 10 images</p>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.Label("Category Images", htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-6">
+                            <input type="file" name="image" multiple />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.UserVideo.VideoUrl, "Edit VideoUrl", htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-6">
+                            @Html.EditorFor(model => model.UserVideo.VideoUrl, new { htmlAttributes = new { @class = "form-control", placeholder = "Please enter video url of source location ex:-youtube", required = "required" } })
+                            @Html.ValidationMessageFor(model => model.UserVideo.VideoUrl, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <p class="text-center">
+                        <i class="fa fa-edit"></i> Please enter the video urls
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <input type="submit" value="Save" class="w3-button w3-teal w3-block" />
+        <a href="/Teacher/Index"> <input type="button" value="Cancel" class="w3-button  w3-block" /></a>
+    }
+</div>
+
+
+@section scripts{
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.Date').datepicker();
+
+            $('#AvalilableTeacher_FromAvailableDate').change(function () {
+                DateVal($(this).val());
+                $(this).attr('title', "Date cannot be less than today's Date");
+            })
+            $('#AvalilableTeacher_ToAvailableDate').change(function () {
+                todateval($(this).val());
+                $(this).attr('title', "Date cannot be less than today's Date");
+            })
+
+            $('#AvalilableTeacher_ToAvailableTime').change(function () {
+                totime($(this).val());
+                $(this).attr('title', "Time should be greater than from time");
+            })
+            function DateVal(pDate) {
+                var d = new Date();
+                var s = new Date(pDate)
+                if (d > s) {
+                    $('#alert').html("Date cannot be less than today's Date");
+                    $('#alert').removeClass('hidden');
+                    $(':input[type="submit"]').prop('disabled', true);
+                }
+                else {
+                    $('#alert').addClass('hidden');
+                    $(':input[type="submit"]').prop('disabled', false);
+                }
+            };
+            function todateval(pDate) {
+                var d = new Date();
+                var s = new Date(pDate)
+                var frmdate = new Date($('#AvalilableTeacher_FromAvailableDate').val());
+                if (s <= frmdate) {
+                    $('#alert').html("Date should be greater than from Date");
+                    $('#alert').removeClass('hidden');
+                    $(':input[type="submit"]').prop('disabled', true);
+                }
+                else {
+                    $('#alert').addClass('hidden');
+                    $(':input[type="submit"]').prop('disabled', false);
+                }
+            };
+
+            function totime(pTime) {
+                var fromtime = $('#AvalilableTeacher_FromAvailableTime').val();
+                if (pTime < fromtime) {
+                    $('#alert').html("Time should be greater than from time");
+                    $('#alert').removeClass('hidden');
+                    $(':input[type="submit"]').prop('disabled', true);
+                }
+                else {
+                    $('#alert').addClass('hidden');
+                    $(':input[type="submit"]').prop('disabled', false);
+                }
+            }
+        });
+
+
+
+    </script>
+
+    <script src="~/scripts/jquery.datetimepicker.full.js"></script>
+    <link href="~/Content/jquery.datetimepicker.min.css" rel="stylesheet" />
+    <script>
+        $(document).ready(function () {
+            $('.Time').datetimepicker({
+                datepicker: false,
+                format: 'H:i'
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#States').change(function () {
+                var id = $('#States').val();
+                $.getJSON("/User/GetCities?stateId=" + id, function (data) {
+                    $("#FKCityId").empty();
+                    $.each(data, function (key, item) {
+                        $("#FKCityId").append($("<option></option>").val(item.PKCityId).html(item.CityName));
+                    });
+                })
+            })
+        });
+
+    </script>
+}
+
