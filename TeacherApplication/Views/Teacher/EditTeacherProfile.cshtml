@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/_TeacherNewLayout.cshtml";
 }
 
-<h2>Vender Description Profile</h2>
+<h2>Venders Offers</h2>
 
 
 @using (Html.BeginForm())
@@ -34,6 +34,9 @@
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
         </div>
+
+
+      
 
         <div class="form-group">
             @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })

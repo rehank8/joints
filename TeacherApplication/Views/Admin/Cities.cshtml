@@ -44,7 +44,7 @@
                 <td class="text-center">
                     <button class="btn btn-primary btnEdit" data-toggle="modal" data-target="#myModal">Edit City</button>
                     @Html.HiddenFor(modelItem => item.PKCityId, new { @class = "cityId" })
-                    <a href="@Url.Action("DeleteCity",new {id=item.PKCityId })"><input type="button" value="Delete" class="btn btn-danger" /></a>
+                    @*<a href="@Url.Action("DeleteCity",new {id=item.PKCityId })"><input type="button" value="Delete" class="btn btn-danger" /></a>*@
                 </td>
             </tr>
         }
@@ -71,17 +71,18 @@
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         @Html.Hidden("PKCityId")
                         <div class="form-group">
-                            @Html.Label("States", "State-Name", htmlAttributes: new { @class = "control-label col-md-3" })
+                            @Html.Label("States", "State-Name", htmlAttributes: new { @class = "control-label col-md-3"  })
                             <div class="col-md-7">
-                                @Html.DropDownList("FKStateId", ViewBag.States as SelectList, "Select State")
-                                @Html.ValidationMessage("FKStateId", "", new { @class = "text-danger" })
+                                @Html.DropDownList("FKStateId", ViewBag.States as SelectList, "Select State",new { required = "required" })
+
+								@Html.ValidationMessage("FKStateId", "", new { @class = "text-danger" })
                             </div>
                         </div>
 
                         <div class="form-group">
                             @Html.Label("CityName", "City Name", htmlAttributes: new { @class = "control-label col-md-3" })
                             <div class="col-md-7">
-                                @Html.Editor("CityName", new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.Editor("CityName", new { htmlAttributes = new { @class = "form-control", required = "required" } })
                                 @Html.ValidationMessage("CityName", "", new { @class = "text-danger" })
                             </div>
                         </div>

@@ -2,83 +2,90 @@
 <html lang="en">
 <head>
 
-    <title>Best $services in $location-find the top $service providers in $location-Wedding Point</title>
+    <title>Best @ViewBag.CatName  in @ViewBag.City -find the top @ViewBag.CatName providers in @ViewBag.City -Wedding Point</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="$Services in $location.Find Best $services.Get Phone Numbers,Address,Reviews,Photos,Maps forr Top $services in $location on WeddingJoints.com">
-    <meta name="keywords" content="$Services,$location,$services in $location,reviews,maps,address,Photos,best $service,weddingjoints.com">
+    <meta name="description" content="@ViewBag.CatName in @ViewBag.City Find Best @ViewBag.CatName Get Phone Numbers,Address,Reviews,Photos,Maps forr Top $services in $location on WeddingJoints.com">
+    <meta name="keywords" content="@ViewBag.CatName,@ViewBag.City,@ViewBag.CatName in @ViewBag.City,reviews,maps,address,Photos,best $service,weddingjoints.com">
     @Styles.Render("~/Content/UserLayoutCSS")
     <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/scripts/bootstrap.min.js"></script>
-    <link href="~/assets/css/custom.css" rel="stylesheet" />
     <style>
     </style>
 </head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-    <nav class="navbar navbar-default header-nav">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" style="padding-top:0px!important">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><img src="~/assets/img/logo.png" /></a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                    @*<li><a href="#about">ABOUT</a></li>
-            <li><a href="#services">SERVICES</a></li>
-            <li><a href="#contact">CONTACT</a></li>*@
-                    @if (Helper.UserData != "")
-                    {
-                        <li><a href='@Url.Action("LogOut","Account")'>Hello @Helper.UserName! Logout</a></li>
-                    }
-                    else
-                    {
-                        <li>
-                            <a href="@Url.Action("Login", "Account")" class="btn btn-sm btn-theme"  ="btnLogin" data-toggle="modal" data-target="#myModal">login</a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Registration", "Account")"  id="btnregisterlink" data-toggle="modal" data-target="#registerModal">Register</a>
-                        </li>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#about">ABOUT</a></li>
+					<li><a href="#services">SERVICES</a></li>
+					<li><a href="#contact">CONTACT</a></li>
+					@*@if (Session["user"] != null)
+		{
+			@Html.Action("Index", "Teacher")
 
-                        
-                    }
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
+		}*@
+					@if (Helper.UserData != "")
+					{
+						<li><a href='@Url.Action("LogOut", "Account")'>Hello @Helper.UserName! LOGOUT</a></li>
+						
+
+					}
+
+					
+					else
+					{
+						<li class="visible-xs">
+							<a href="@Url.Action("Login", "Account")" class="fontdetails" style="color:#fff;">LOGIN</a>
+						</li>
+						<li class="visible-xs">
+							<a href="@Url.Action("Registration", "Account")" class="fontdetails" style="color:#fff;">REGISTER</a>
+						</li>
+
+						<li class="hidden-xs">
+							<button class="btn btnLogin" id="btnLogin" data-toggle="modal" data-target="#myModal" style="display: none;">Login</button>
+							<a href="#" id="btnlink">LOGIN</a>
+						</li>
+
+						<li class="hidden-xs">
+							<button class="btn" id="btnregisterlink" data-toggle="modal" data-target="#registerModal" style="display: none;">Register</button>
+							<a href="#" id="btnregister">Register</a>
+						</li>
+					}
+				</ul>
+            </div>
+        </div>
     </nav>
 
-    
 
-
-    <div class="jumbotron" >
+    <div class="jumbotron text-center" style="padding-bottom: 0px;margin-bottom:0;">
         @*<a href="/" class="logoSec hidden-sm hidden-xs"><img src="/Images/logo.png" alt=""></a>*@
-       
+        <a href="/" style="color:White"  class="logoSec hidden-sm hidden-xs"><img src="/Images/home_icon.png" alt=""></a>
+    
+        
         <form class="form-inline" action="@Url.Action("Index","User",null)" method="post" id="Search">
-            <div class="row">
-                <div class="col-sm-8 col-sm-offset-2 form-mobile">
-                    <input type="text" readonly id="loc" class="form-control input-lg" name="txtLocation" value="@ViewBag.Location" />
-                    <input type="text" placeholder="search based on  City" class="form-control input-lg" name="txtCity" id="txtCity" value="@ViewBag.Location" />
-                    <button type="submit" class="btn btn-danger btn-lg">Search</button>
-                </div>
-            </div>
-           
-           
-
+            <input type="text" readonly id="loc" class="form-control input-lg" name="txtLocation" value="@ViewBag.Location" /> <input type="text" placeholder="search based on  City" class="form-control input-lg txtCity" style="max-width:30%!important" name="txtCity" id="txtCity" value="@ViewBag.Location" required/>
+            <button type="submit"  id="btnsearch" class="btn btn-danger btn-lg">Search</button>
             @*@Html.DropDownList("States", ViewBag.State as SelectList, "Please Select State", htmlAttributes: new { @class = "form-control" })
-        @Html.DropDownList("Cities", ViewBag.Cities as SelectList, "Select Cities", new { @class = "form-control" })
-        <button type="submit" class="btn btn-danger">Search</button>*@
+                @Html.DropDownList("Cities", ViewBag.Cities as SelectList, "Select Cities", new { @class = "form-control" })
+                <button type="submit" class="btn btn-danger">Search</button>*@
             <div class="container">
                 @{
                     var subject = Data_Access.DbHelper.GetSubjects();
-                    <ul class="list-inline  navbar-default services-menu" >
+                    <ul class="list-inline  navbar-default mainMenu" id="mainMenu" style="background-color:transparent">
+                        @*<li><a href="/" style="color:White"><img src="/Images/home_icon.png" alt="">Home</a></li>*@
                         @foreach (var item in subject)
                         {
                             <li><a href="@Url.Action("Index","User",null)"><img class="categoryLink" src="/Images/@(item.SubjectName).png" alt="@item.SubjectName"><input type="submit" class="btn btn-link" value="@item.SubjectName" name="subjectlink" style="color:White" /></a></li>
@@ -92,10 +99,186 @@
     <div>
         @RenderBody()
     </div>
+    <!-- Container (About Section) -->
+    <div id="about" class="container-fluid">
+        <div class="row">
+            <div class="col-sm-8">
+                <h2>About Company Page</h2><br>
+                <p>We specialize in Finding a Online tutors</p>
+                <br><button class="btn btn-default btn-lg">Get in Touch</button>
+            </div>
+            @*<div class="col-sm-4">
+                    <span class="glyphicon glyphicon-signal logo"></span>
+                </div>*@
+        </div>
+    </div>
+
+    <div class="container-fluid bg-grey">
+        <div class="row">
+            <div class="col-sm-4">
+                <span class="glyphicon glyphicon-globe logo slideanim"></span>
+            </div>
+            <div class="col-sm-8">
+                <h2>Our Values</h2><br>
+                <h4><strong>MISSION:</strong> Our </h4><br>
+                <p>
+                    <strong>VISION:</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container (Services  by mohammed Section) -->
+    <div id="services" class="container text-center">
+        <h2>SERVICES</h2>
+        <br />
+        <h4>What we offer</h4>
+        <br />
+        @*<div class="row slideanim">*@
+        <div class="row">
+            <div class="col-sm-4">
+                @foreach (var item in subject)
+                {
+
+
+                    <ul> <li> <a href="@Url.Action("Index","User",null)"><p><input type="submit" class="btn btn-link" value="@item.SubjectName" name="subjectlink" /></p></a></li></ul>
+
+
+
+                }
+            </div>
+
+            <div class="col-sm-4">
+                <ul>
+                    <li>
+                        <a href="@Url.Action("Index","User",null)">Chicago</a>
+                        
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Index","User",null)">NewYork</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+        </div>
+        @*doubt*@
+        @*<div class="row">
+                @{
+                        var city = Data_Access.DbHelper.GetCities();
+
+                        foreach (var item in city)
+                        {
+                        <div class=".col-sm-4">
+                           <ul> <li><a href="@Url.Action("Index","User",null)"> <p><input type="submit" class="btn btn-link" value="@item.City.Take(8).ToList();" name="subjectlink" /></p></a></li></ul>
+                            </div>
+                        }
+
+                }
+            </div>*@
+
+
+
+    </div>
 
 
 
 
+
+
+
+
+
+    @*<div class="col-sm-4">
+            <span class="glyphicon glyphicon-off logo-small"></span>
+            <h4>POWER</h4>
+            <p></p>
+        </div>
+
+        <div class="col-sm-4">
+            <span class="glyphicon glyphicon-certificate logo-small"></span>
+            <h4>CERTIFIED</h4>
+            <p></p>
+        </div>
+
+        <div class="col-sm-4">
+            <span class="glyphicon glyphicon-lock logo-small"></span>
+            <h4>JOB DONE</h4>
+            <p></p>
+        </div>*@
+    @*</div>*@
+    <br><br>
+    </div>
+
+    @*<!-- Container (Portfolio Section) -->
+        <div id="portfolio" class="container-fluid text-center bg-grey">
+            <h2>What our students say</h2>
+            <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <h4>"This company is the best. I am so happy with the result!"<br><span style="font-style:normal;">Michael Roe, Vice President, Comment Box</span></h4>
+                    </div>
+                    <div class="item">
+                        <h4>"One word... WOW!!"<br><span style="font-style:normal;">John Doe, Salesman, Rep Inc</span></h4>
+                    </div>
+                    <div class="item">
+                        <h4>"Could I... BE any more happy with this company?"<br><span style="font-style:normal;">Chandler Bing, Actor, FriendsAlot</span></h4>
+                    </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+
+
+
+        <!-- Container (Contact Section) -->
+        <div id="contact" class="container-fluid bg-grey">
+            <h2 class="text-center">CONTACT</h2>
+            <div class="row">
+                <div class="col-sm-5">
+                    <p>Contact us and we'll get back to you within 24 hours.</p>
+                    <p><span class="glyphicon glyphicon-map-marker"></span> Chicago, US</p>
+                    <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
+                    <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
+                </div>
+                <div class="col-sm-7 slideanim">
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                        </div>
+                    </div>
+                    <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+                    <div class="row">
+                        <div class="col-sm-12 form-group">
+                            <button class="btn btn-default pull-right" type="submit">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
     <!--Login Section-->
     <div>
         @Html.Partial("_PartialLogin")
@@ -104,108 +287,90 @@
     <div>
         @Html.Partial("_PartialRegister")
     </div>
-    <footer class="footer2">
-        <div class="footer">
-            <div class="text-center">
-                <a href="#myPage" title="To Top">
-                    <span class="glyphicon glyphicon-chevron-up"></span>
-                </a>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <nav class="col-md-3 col-sm-6 col-xs-12">
-                        <h3>Browse <span>Categories</span></h3>
-                        <ul>
-                            @foreach (var item in subject)
-                            {
-                                <li>
-                                    <a href="@Url.Action("Index","User",null)">@item.SubjectName</a>
-                                </li>
-                            }
-
-                        </ul>
-                    </nav>
-                    <nav class="col-md-3 col-sm-6 col-xs-12">
-                        <h3>Top <span>Cities</span></h3>
-                        <ul>
-                            <li> <a href="#">Birmingham</a></li>
-                            <li>
-                                <a href="#">   Huntsville</a>
-                            </li>
-                            <li> <a href="#">Montgomery</a></li>
-                            <li>
-                                <a href="#"> Fairbanks</a>
-                            </li>
-                            <li>
-                                <a href="#"> Juneau</a>
-                            </li>
-                            <li>
-                                <a href="#">Sitka</a>
-                            </li>
-                            <li>
-                                <a href="#"> Chandler</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <nav class="col-md-3 col-sm-6 col-xs-12">
-                        <h3>Help <span>& Support</span></h3>
-                        <ul>
-                            <li> <a href="#">Help Center</a></li>
-                            <li>
-                                <a href="#">FAQ</a>
-                            </li>
-                            <li> <a href="#">Privacy Policy</a></li>
-                            <li>
-                                <a href="#">About Us</a>
-                            </li>
-                            <li>
-                                <a href="#">Contact Us</a>
-                            </li>
-                            <li>
-                                <a href="#">Services</a>
-                            </li>
-                            <li>
-                                <a href="#"> Mission</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <nav class="col-md-3 col-sm-6 col-xs-12">
-                        <h3>Follow <span>weddingJoints</span></h3>
-                        <div class="input-group input-group-md">
-                            <input type="text" class="form-control" placeholder="Email Address">
-                            <span class="input-group-addon">Subscribe</span>
-                        </div>
-                        <ul class="social">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                        </ul>
-                    </nav>
-                </div> <!--/.row-->
-                <hr />
-                <div class="row" style="color:#DDD;line-height: 1.5;font-size: 13px;">
-                    @foreach (var item in ViewBag.FooterCities as List<Domain.City>)
-                    {
-                        <div class="col-sm-3">
-                            @item.CityName
-                        </div>
-                    }
-                </div>
-            </div> <!--/.container-->
-        </div> <!--/.footer-->
-
-
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="pull-left"> Copyright © Footer www.weddingJoints.com</div>
-                <div class="pull-right">Made By <a href="#" title="Visit weddingjoints.com">www.weddingJoints.com</a></div>
-            </div>
-        </div> <!--/.footer-bottom-->
+    <footer class="text-center container">
+        <h2 class="text-center">Cities</h2>
+        <div class="row">
+            @*@foreach (var item in ViewBag.FooterCities as List<Domain.City>)
+                {
+                    <div class="col-sm-3">
+                        @item.CityName
+                    </div>
+                }*@
+        </div>
+        <a href="#myPage" title="To Top">
+            <span class="glyphicon glyphicon-chevron-up"></span>
+        </a>
+        <p> Made By <a href="#" title="Visit weddingjoints.com">www.weddingJoints.com</a></p>
     </footer>
+    @*by mohammed*@
+    <script type="text/javascript">
+        //$(document).ready(function () {
+        //    $('#txtCity').keydown(function () {
+        //        if ($(this).val() == "") {
+        //            if ($('#loc').val() != "") {
+        //                $("#btnsearch").attr("disabled", "disabled");
+        //            }
+        //        }
+        //        else {
 
-    <script src="~/scripts/UserLayout.js"></script>
+        //            $("#btnsearch").removeAttr("disabled");
+        //        }
+        //    });
+        //    if ($('#loc').val() == "") {
+        //        $("#btnsearch").attr("disabled", "disabled");
+        //    }
+        //    else {
+        //        $("#btnsearch").removeAttr("disabled");
+        //    }
+        //});
+        //by meraj
+
+		$(document).ready(function () {
+			$('#txtCity').keyup(function () {
+				if ($('#txtCity').val() != "") {
+					$("#loc").val($('#txtCity').val());
+				}
+				else {
+					$("#loc").val('');
+				}
+
+			});
+			$("#btnsearch").click(function () {
+				if ($('#txtCity').val().trim() == "") {
+					alert("Please enter city ");
+				}
+			});
+		});
+
+		//$(document).ready(function () {
+		//	$('#txtCity').keydown(function () {
+		//		if ($('#txtCity').val() == "") {
+		//			alert("Please enter city ");
+		//		}
+
+		//	});
+		//});
+        //$(document).ready(function () {
+        //    $('#txtCity').keydown(function () {
+        //        if ($('#txtCity').val()== "") {
+        //            alert("Please enter city ");
+        //        }
+        //    //    else {
+
+        //    //        $("#btnsearch").removeAttr("disabled");
+        //    //    }
+        //    //});
+        //    //if ($('#loc').val() == "") {
+        //    //    $("#btnsearch").attr("disabled", "disabled");
+        //    //}
+        //    //else {
+        //    //    $("#btnsearch").removeAttr("disabled");
+        //    //}
+        //});
+
+
+    </script>
+    @*<script src="~/scripts/UserLayout.js"></script>*@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#States').change(function () {

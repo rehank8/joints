@@ -11,18 +11,19 @@
 <table class="table table-bordered table-responsive w3-hoverable w3-white">
     <tr class="success">
         <th>
-            @Html.DisplayName("Category Name")
+            @Html.DisplayName("Business Name")
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Description)*@
+            @Html.DisplayName("Business Type")
         </th>
         @*<th>
-            @Html.DisplayNameFor(model => model.SubjectName)
+            @Html.DisplayName("IsAdminApproved")
         </th>*@
         <th>
-            @Html.DisplayName("IsAdminApproved")
+            @Html.DisplayName(" location")
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserProfile.UserName)
-        </th>
-        <th></th>
+        <th>@Html.DisplayName(" Action")</th>
     </tr>
 
 @foreach (var item in Model)
@@ -31,20 +32,26 @@
         <td>
             @Html.DisplayFor(modelItem => item.ClassName)
         </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.SubjectName)
+        <td>
+            @Html.DisplayFor(modelItem => item.Subject.SubjectName)
+        @*</td><td>
+            @Html.DisplayFor(modelItem => item.IsApproved)
         </td>*@
         <td>
-            @Html.DisplayFor(modelItem => item.IsApproved)
+            @Html.DisplayFor(modelItem =>item.AreaName)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserProfile.UserName)
-        </td>
-        <td>
-            <a href="@Url.Action("EditClass", new { id = item.PKClassId })"><input type="button" value="Edit" class="w3-button w3-white w3-border w3-border-blue w3-round-large" /></a>
-            @*<a href="@Url.Action("ClassDetails", new { id = item.PKClassId })"><input type="button" value="Details" class="btn btn-info" /></a>*@
-            <a href="@Url.Action("DeleteClass", new { id = item.PKClassId })"><input type="button" value="Delete" class="w3-button w3-white w3-border w3-border-red w3-round-large" /></a>
-        </td>
+		<td>
+			<a href="@Url.Action("EditClass", new { id = item.PKClassId })"><input type="button" value="Edit" class="w3-button w3-white w3-border w3-border-blue w3-round-large" /></a>
+			@*<a href="@Url.Action("ClassDetails", new { id = item.PKClassId })"><input type="button" value="Details" class="btn btn-info" /></a>*@
+			@*<a href="@Url.Action("DeleteClass", new { id = item.PKClassId })"><input type="button" value="Delete" class="w3-button w3-white w3-border w3-border-red w3-round-large" /></a>*@
+			@if (item.IsActive)
+			{
+				<span class="badge badge-primary">Active</span>
+			}
+			else
+			{<span class="badge badge-secondary">In Active</span>
+			}
+		</td>
     </tr>
 }
 

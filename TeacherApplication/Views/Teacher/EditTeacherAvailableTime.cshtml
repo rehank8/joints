@@ -1,70 +1,78 @@
-﻿@model Domain.AvailableTeacherTime
+﻿@model TeacherApplication.Models.Category
 
 @{
-    ViewBag.Title = "EditTeacherAvailableTime";
-    //Layout = "~/Views/Shared/_TeacherLayout.cshtml";
-    Layout = "~/Views/Shared/_TeacherNewLayout.cshtml";
+	ViewBag.Title = "EditTeacherAvailableTime";
+	//Layout = "~/Views/Shared/_TeacherLayout.cshtml";
+	Layout = "~/Views/Shared/_TeacherNewLayout.cshtml";
 }
 
 @using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken()
+	@Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.PKAvailableTeacherTimeId)
-        @Html.HiddenFor(model => model.FKClassId)
+<div class="form-horizontal">
+	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+	@Html.HiddenFor(model => model.AvalilableTeacher.PKAvailableTeacherTimeId)
+	@Html.HiddenFor(model => model.AvalilableTeacher.FKClassId)
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.Class.ClassName,"Business Name", htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.TextBoxFor(model => model.Class.ClassName, new { @class = "form-control Date" , @readonly = "readonly" })
+			@Html.ValidationMessageFor(model => model.Class.ClassName, "", new { @class = "text-danger" })
+		</div>
+	</div>
 
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.FromAvailableDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.FromAvailableDate, new { @class = "form-control Date" })
-                @Html.ValidationMessageFor(model => model.FromAvailableDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
+	<div class="form-group">
+		@Html.LabelFor(model => model.AvalilableTeacher.FromAvailableDate, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.TextBoxFor(model => model.AvalilableTeacher.FromAvailableDate, new { @class = "form-control Date" })
+			@Html.ValidationMessageFor(model => model.AvalilableTeacher.FromAvailableDate, "", new { @class = "text-danger" })
+		</div>
+	</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ToAvailableDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(model => model.ToAvailableDate, new { @class = "form-control Date" })
-                @Html.ValidationMessageFor(model => model.ToAvailableDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
+	<div class="form-group">
+		@Html.LabelFor(model => model.AvalilableTeacher.ToAvailableDate, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.TextBoxFor(model => model.AvalilableTeacher.ToAvailableDate, new { @class = "form-control Date" })
+			@Html.ValidationMessageFor(model => model.AvalilableTeacher.ToAvailableDate, "", new { @class = "text-danger" })
+		</div>
+	</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.FromAvailableTime, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FromAvailableTime, new { htmlAttributes = new { @class = "form-control Time" } })
-                @Html.ValidationMessageFor(model => model.FromAvailableTime, "", new { @class = "text-danger" })
-            </div>
-        </div>
+	<div class="form-group">
+		@Html.LabelFor(model => model.AvalilableTeacher.FromAvailableTime, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.AvalilableTeacher.FromAvailableTime, new { htmlAttributes = new { @class = "form-control Time" } })
+			@Html.ValidationMessageFor(model => model.AvalilableTeacher.FromAvailableTime, "", new { @class = "text-danger" })
+		</div>
+	</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ToAvailableTime, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ToAvailableTime, new { htmlAttributes = new { @class = "form-control Time" } })
-                @Html.ValidationMessageFor(model => model.ToAvailableTime, "", new { @class = "text-danger" })
-            </div>
-        </div>
+	<div class="form-group">
+		@Html.LabelFor(model => model.AvalilableTeacher.ToAvailableTime, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.AvalilableTeacher.ToAvailableTime, new { htmlAttributes = new { @class = "form-control Time" } })
+			@Html.ValidationMessageFor(model => model.AvalilableTeacher.ToAvailableTime, "", new { @class = "text-danger" })
+		</div>
+	</div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.IsActive)
-                    @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
+	<div class="form-group">
+		@Html.LabelFor(model => model.AvalilableTeacher.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			<div class="checkbox">
+				@Html.EditorFor(model => model.AvalilableTeacher.IsActive)
+				@Html.ValidationMessageFor(model => model.AvalilableTeacher.IsActive, "", new { @class = "text-danger" })
+			</div>
+		</div>
+	</div>
 
-        <div class="form-group">
-            <div class="col-md-offset-4 col-md-8">
-                <input type="submit" value="Save" class="w3-button w3-white w3-border w3-border-blue w3-round-large" />
-                <a href="/Teacher/TeacherAvailableTimes"><input type="button" value="Cancel" class="w3-button w3-white w3-border w3-border-red w3-round-large" /></a>
-            </div>
-        </div>
-    </div>
+	<div class="form-group">
+		<div class="col-md-offset-4 col-md-8">
+			<input type="submit" value="Save" class="w3-button w3-white w3-border w3-border-blue w3-round-large" />
+			<a href="/Teacher/TeacherAvailableTimes"><input type="button" value="Cancel" class="w3-button w3-white w3-border w3-border-red w3-round-large" /></a>
+		</div>
+	</div>
+</div>
 }
 
 
@@ -72,9 +80,9 @@
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 @section scripts{
 
-    <script src="~/scripts/jquery.datetimepicker.full.js"></script>
-    <link href="~/Content/jquery.datetimepicker.min.css" rel="stylesheet" />
-    <script>
+	<script src="~/scripts/jquery.datetimepicker.full.js"></script>
+	<link href="~/Content/jquery.datetimepicker.min.css" rel="stylesheet" />
+	<script>
         $(document).ready(function () {
             $('.Date').datetimepicker({
                 timepicker: false,
@@ -85,5 +93,5 @@
                 format: 'H:i'
             });
         });
-    </script>
+	</script>
 }

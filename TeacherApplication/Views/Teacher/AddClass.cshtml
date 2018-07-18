@@ -1,11 +1,29 @@
 ﻿@model TeacherApplication.Models.Category
 
 @{
-    ViewBag.Title = "AddClass";
+    ViewBag.Title = "AddBusiness";
     Layout = "~/Views/Shared/_TeacherLayout.cshtml";
 }
 
-<h2 class="text-center">Add Category</h2>
+<h2 class="text-center">Add Business</h2>
+<style>
+
+	::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+		color: red;
+	}
+
+	::-moz-placeholder { /* Firefox 19+ */
+		color: red;
+	}
+
+	:-ms-input-placeholder { /* IE 10+ */
+		color:red;
+	}
+
+	:-moz-placeholder { /* Firefox 18- */
+		color: red;
+	}
+</style>
 
 <div style="margin-left:20px">
     @using (Html.BeginForm("AddClass", "Teacher", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -21,26 +39,26 @@
                     <div class="form-group">
                         @Html.Label("State", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.DropDownList("States", ViewBag.States as SelectList, "Please Select State", htmlAttributes: new { @class = "form-control" })
+                            @Html.DropDownList("States", ViewBag.States as SelectList, "Please Select State", htmlAttributes: new { @class = "form-control", required = "required" })
                         </div>
                     </div>
-                    <div class="form-group" style="display:none">
+                    <div class="form-group">
                         @Html.Label("City", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.DropDownList("Class.FKCityId", ViewBag.Cities as SelectList, "Please Select City", htmlAttributes: new { @class = "form-control", id = "FKCityId" })
+                            @Html.DropDownList("Class.FKCityId", ViewBag.Cities as SelectList, "Please Select City", htmlAttributes: new { @class = "form-control", id = "FKCityId", required = "required" })
                         </div>
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(model => model.Class.AreaName, "Area Name", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Class.AreaName, new { htmlAttributes = new { @class = "form-control", placeholder = "Please enter Area name", required = "required" } })
+                            @Html.EditorFor(model => model.Class.AreaName, new { htmlAttributes = new { @class = "form-control", placeholder = "Please enter Area name if you don't find city name in above Dropdown" , required = "required" } })
                             @Html.ValidationMessageFor(model => model.Class.AreaName, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group">
                         @Html.LabelFor(model => model.Class.FKSubjectId, "Category Name", htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.DropDownListFor(model => model.Class.FKSubjectId, ViewBag.Subject as SelectList, "Select Category", new { @class = "form-control" })
+                            @Html.DropDownListFor(model => model.Class.FKSubjectId, ViewBag.Subject as SelectList, "Select Category", new { @class = "form-control", required = "required" })
                             @Html.ValidationMessageFor(model => model.Class.FKSubjectId, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -65,7 +83,7 @@
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.TeacherProfile.Experience, htmlAttributes: new { @class = "control-label col-md-4" })
+                        @Html.LabelFor(model => model.TeacherProfile.Experience,"In Business", htmlAttributes: new { @class = "control-label col-md-4" })
                         <div class="col-md-6">
                             @Html.EditorFor(model => model.TeacherProfile.Experience, new { htmlAttributes = new { @class = "form-control", type = "number", placeholder = "Please enter experience", required = "required" } })
                             @Html.ValidationMessageFor(model => model.TeacherProfile.Experience, "", new { @class = "text-danger" })
@@ -136,7 +154,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.UserVideo.VideoUrl, "Edit VideoUrl", htmlAttributes: new { @class = "control-label col-md-4" })
                         <div class="col-md-6">
-                            @Html.EditorFor(model => model.UserVideo.VideoUrl, new { htmlAttributes = new { @class = "form-control", placeholder = "Please enter video url of source location ex:-youtube", required = "required" } })
+                            @Html.EditorFor(model => model.UserVideo.VideoUrl, new { htmlAttributes = new { @class = "form-control", placeholder = "Please enter video url of source location ex:-youtube"  } })
                             @Html.ValidationMessageFor(model => model.UserVideo.VideoUrl, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -148,7 +166,7 @@
         </div>
 
         <input type="submit" value="Save" class="w3-button w3-teal w3-block" />
-        <a href="/Teacher/Index"> <input type="button" value="Cancel" class="w3-button  w3-block" /></a>
+        <a href="/Teacher/Classes"> <input type="button" value="Cancel" class="w3-button  w3-block" /></a>
     }
 </div>
 

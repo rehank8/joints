@@ -1,0 +1,1104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TeachersModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AvailableTeacherTime">
+          <Key>
+            <PropertyRef Name="PKAvailableTeacherTimeId" />
+          </Key>
+          <Property Name="PKAvailableTeacherTimeId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FKClassId" Type="bigint" Nullable="false" />
+          <Property Name="FromAvailableDate" Type="date" Nullable="false" />
+          <Property Name="ToAvailableDate" Type="date" Nullable="false" />
+          <Property Name="FromAvailableTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="ToAvailableTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="PKCityId" />
+          </Key>
+          <Property Name="PKCityId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FKStateId" Type="bigint" Nullable="false" />
+          <Property Name="CityName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Class">
+          <Key>
+            <PropertyRef Name="PKClassId" />
+          </Key>
+          <Property Name="PKClassId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FKUserId" Type="bigint" Nullable="false" />
+          <Property Name="FKSubjectId" Type="bigint" Nullable="false" />
+          <Property Name="FKCityId" Type="bigint" />
+          <Property Name="ClassName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsApproved" Type="bit" />
+          <Property Name="ClassImage" Type="varchar(max)" />
+          <Property Name="AreaName" Type="varchar" MaxLength="500" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LoginHistory">
+          <Key>
+            <PropertyRef Name="PKLoginHistoryId" />
+          </Key>
+          <Property Name="PKLoginHistoryId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FKUserId" Type="bigint" Nullable="false" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="LoginDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RecoveryDetail">
+          <Key>
+            <PropertyRef Name="RecoveryID" />
+          </Key>
+          <Property Name="RecoveryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RecoveryDetails" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="value" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="PKRoleId" />
+          </Key>
+          <Property Name="PKRoleId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="PKStateId" />
+          </Key>
+          <Property Name="PKStateId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StateName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Subjects">
+          <Key>
+            <PropertyRef Name="PKSubjectId" />
+          </Key>
+          <Property Name="PKSubjectId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubjectName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TeacherProfile">
+          <Key>
+            <PropertyRef Name="PKTeachersId" />
+          </Key>
+          <Property Name="PKTeachersId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FKUserId" Type="bigint" Nullable="false" />
+          <Property Name="FKClassId" Type="bigint" />
+          <Property Name="Experience" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Rating" Type="decimal" Precision="18" Scale="1" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserComments">
+          <Key>
+            <PropertyRef Name="PKUserCommentId" />
+          </Key>
+          <Property Name="PKUserCommentId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FKClassId" Type="bigint" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Comments" Type="varchar(max)" Nullable="false" />
+          <Property Name="Rating" Type="numeric" Precision="18" Scale="1" />
+        </EntityType>
+        <EntityType Name="UserEnquiries">
+          <Key>
+            <PropertyRef Name="PKEnquiryId" />
+          </Key>
+          <Property Name="PKEnquiryId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FKUserId" Type="bigint" Nullable="false" />
+          <Property Name="FKTeacherId" Type="bigint" Nullable="false" />
+          <Property Name="FKAvailableTimeId" Type="bigint" Nullable="false" />
+          <Property Name="FKClassId" Type="bigint" Nullable="false" />
+          <Property Name="BookedFromDate" Type="date" Nullable="false" />
+          <Property Name="BookedToDate" Type="date" Nullable="false" />
+          <Property Name="BookedFromTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="BookedToTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="BookingStatus" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FollowUP" Type="bit" />
+        </EntityType>
+        <EntityType Name="UserImages">
+          <Key>
+            <PropertyRef Name="PKUserImageId" />
+          </Key>
+          <Property Name="PKUserImageId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FKClassId" Type="bigint" Nullable="false" />
+          <Property Name="ImageName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImageUrl" Type="varchar(max)" Nullable="false" />
+          <Property Name="VideoUrl" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="PKUserId" />
+          </Key>
+          <Property Name="PKUserId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FKRoleId" Type="bigint" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhoneNo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmailId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhotoUrl" Type="varchar(max)" />
+          <Property Name="Address" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="State" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Country" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Latitude" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Longitude" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Zipcode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserVideo">
+          <Key>
+            <PropertyRef Name="PKUserVideoId" />
+          </Key>
+          <Property Name="PKUserVideoId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FKClassId" Type="bigint" Nullable="false" />
+          <Property Name="VideoUrl" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AvailableTeacherTime_Class">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="AvailableTeacherTime" Type="Self.AvailableTeacherTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="PKClassId" />
+            </Principal>
+            <Dependent Role="AvailableTeacherTime">
+              <PropertyRef Name="FKClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_City_State">
+          <End Role="State" Type="Self.State" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="PKStateId" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="FKStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Class_City">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Class" Type="Self.Class" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="PKCityId" />
+            </Principal>
+            <Dependent Role="Class">
+              <PropertyRef Name="FKCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Class_Subjects">
+          <End Role="Subjects" Type="Self.Subjects" Multiplicity="1" />
+          <End Role="Class" Type="Self.Class" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subjects">
+              <PropertyRef Name="PKSubjectId" />
+            </Principal>
+            <Dependent Role="Class">
+              <PropertyRef Name="FKSubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Class_UserProfile">
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+          <End Role="Class" Type="Self.Class" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="PKUserId" />
+            </Principal>
+            <Dependent Role="Class">
+              <PropertyRef Name="FKUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoginHistory_UserProfile">
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+          <End Role="LoginHistory" Type="Self.LoginHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="PKUserId" />
+            </Principal>
+            <Dependent Role="LoginHistory">
+              <PropertyRef Name="FKUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeacherProfile_Class">
+          <End Role="Class" Type="Self.Class" Multiplicity="0..1" />
+          <End Role="TeacherProfile" Type="Self.TeacherProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="PKClassId" />
+            </Principal>
+            <Dependent Role="TeacherProfile">
+              <PropertyRef Name="FKClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeacherProfile_UserProfile">
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+          <End Role="TeacherProfile" Type="Self.TeacherProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="PKUserId" />
+            </Principal>
+            <Dependent Role="TeacherProfile">
+              <PropertyRef Name="FKUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserComments_Class">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="UserComments" Type="Self.UserComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="PKClassId" />
+            </Principal>
+            <Dependent Role="UserComments">
+              <PropertyRef Name="FKClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserEnquiries_AvailableTeacherTime">
+          <End Role="AvailableTeacherTime" Type="Self.AvailableTeacherTime" Multiplicity="1" />
+          <End Role="UserEnquiries" Type="Self.UserEnquiries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AvailableTeacherTime">
+              <PropertyRef Name="PKAvailableTeacherTimeId" />
+            </Principal>
+            <Dependent Role="UserEnquiries">
+              <PropertyRef Name="FKAvailableTimeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserEnquiries_Class">
+          <End Role="Class" Type="Self.Class" Multiplicity="1" />
+          <End Role="UserEnquiries" Type="Self.UserEnquiries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="PKClassId" />
+            </Principal>
+            <Dependent Role="UserEnquiries">
+              <PropertyRef Name="FKClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserEnquiries_TeacherProfile">
+          <End Role="TeacherProfile" Type="Self.TeacherProfile" Multiplicity="1" />
+          <End Role="UserEnquiries" Type="Self.UserEnquiries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TeacherProfile">
+              <PropertyRef Name="PKTeachersId" />
+            </Principal>
+            <Dependent Role="UserEnquiries">
+              <PropertyRef Name="FKTeacherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserEnquiries_UserProfile">
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+          <End Role="UserEnquiries" Type="Self.UserEnquiries" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="PKUserId" />
+            </Principal>
+            <Dependent Role="UserEnquiries">
+              <PropertyRef Name="FKUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserImages_Class">
+          <End Role="Class" Type="Self.Class" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserImages" Type="Self.UserImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="PKClassId" />
+            </Principal>
+            <Dependent Role="UserImages">
+              <PropertyRef Name="FKClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="PKRoleId" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="FKRoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserVideo_UserVideo">
+          <End Role="Class" Type="Self.Class" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="UserVideo" Type="Self.UserVideo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="PKClassId" />
+            </Principal>
+            <Dependent Role="UserVideo">
+              <PropertyRef Name="FKClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TeachersModelStoreContainer">
+          <EntitySet Name="AvailableTeacherTime" EntityType="Self.AvailableTeacherTime" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginHistory" EntityType="Self.LoginHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecoveryDetail" EntityType="Self.RecoveryDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subjects" EntityType="Self.Subjects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TeacherProfile" EntityType="Self.TeacherProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserComments" EntityType="Self.UserComments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserEnquiries" EntityType="Self.UserEnquiries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserImages" EntityType="Self.UserImages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserVideo" EntityType="Self.UserVideo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AvailableTeacherTime_Class" Association="Self.FK_AvailableTeacherTime_Class">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="AvailableTeacherTime" EntitySet="AvailableTeacherTime" />
+          </AssociationSet>
+          <AssociationSet Name="FK_City_State" Association="Self.FK_City_State">
+            <End Role="State" EntitySet="State" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Class_City" Association="Self.FK_Class_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="Class" EntitySet="Class" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Class_Subjects" Association="Self.FK_Class_Subjects">
+            <End Role="Subjects" EntitySet="Subjects" />
+            <End Role="Class" EntitySet="Class" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Class_UserProfile" Association="Self.FK_Class_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Class" EntitySet="Class" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoginHistory_UserProfile" Association="Self.FK_LoginHistory_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="LoginHistory" EntitySet="LoginHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeacherProfile_Class" Association="Self.FK_TeacherProfile_Class">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="TeacherProfile" EntitySet="TeacherProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeacherProfile_UserProfile" Association="Self.FK_TeacherProfile_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="TeacherProfile" EntitySet="TeacherProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserComments_Class" Association="Self.FK_UserComments_Class">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="UserComments" EntitySet="UserComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserEnquiries_AvailableTeacherTime" Association="Self.FK_UserEnquiries_AvailableTeacherTime">
+            <End Role="AvailableTeacherTime" EntitySet="AvailableTeacherTime" />
+            <End Role="UserEnquiries" EntitySet="UserEnquiries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserEnquiries_Class" Association="Self.FK_UserEnquiries_Class">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="UserEnquiries" EntitySet="UserEnquiries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserEnquiries_TeacherProfile" Association="Self.FK_UserEnquiries_TeacherProfile">
+            <End Role="TeacherProfile" EntitySet="TeacherProfile" />
+            <End Role="UserEnquiries" EntitySet="UserEnquiries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserEnquiries_UserProfile" Association="Self.FK_UserEnquiries_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="UserEnquiries" EntitySet="UserEnquiries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserImages_Class" Association="Self.FK_UserImages_Class">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="UserImages" EntitySet="UserImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_Role" Association="Self.FK_UserProfile_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserVideo_UserVideo" Association="Self.FK_UserVideo_UserVideo">
+            <End Role="Class" EntitySet="Class" />
+            <End Role="UserVideo" EntitySet="UserVideo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TeachersModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="LoginHistory">
+          <Key>
+            <PropertyRef Name="PKLoginHistoryId" />
+          </Key>
+          <Property Name="PKLoginHistoryId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FKUserId" Type="Int64" Nullable="false" />
+          <Property Name="IPAddress" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LoginDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="UserProfile" Relationship="TeachersModel.FK_LoginHistory_UserProfile" FromRole="LoginHistory" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="PKRoleId" />
+          </Key>
+          <Property Name="PKRoleId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="UserProfiles" Relationship="TeachersModel.FK_UserProfile_Role" FromRole="Role" ToRole="UserProfile" />
+        </EntityType>
+        <EntityContainer Name="TeachersEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LoginHistories" EntityType="Self.LoginHistory" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="UserProfiles" EntityType="TeachersModel.UserProfile" />
+          <AssociationSet Name="FK_LoginHistory_UserProfile" Association="TeachersModel.FK_LoginHistory_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+            <End Role="LoginHistory" EntitySet="LoginHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserProfile_Role" Association="TeachersModel.FK_UserProfile_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+          </AssociationSet>
+          <EntitySet Name="TeacherProfiles" EntityType="TeachersModel.TeacherProfile" />
+          <AssociationSet Name="FK_TeacherProfile_UserProfile" Association="TeachersModel.FK_TeacherProfile_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+            <End Role="TeacherProfile" EntitySet="TeacherProfiles" />
+          </AssociationSet>
+          <EntitySet Name="Subjects" EntityType="TeachersModel.Subject" />
+          <EntitySet Name="UserEnquiries" EntityType="TeachersModel.UserEnquiry" />
+          <AssociationSet Name="FK_UserEnquiries_TeacherProfile" Association="TeachersModel.FK_UserEnquiries_TeacherProfile">
+            <End Role="TeacherProfile" EntitySet="TeacherProfiles" />
+            <End Role="UserEnquiry" EntitySet="UserEnquiries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserEnquiries_UserProfile" Association="TeachersModel.FK_UserEnquiries_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+            <End Role="UserEnquiry" EntitySet="UserEnquiries" />
+          </AssociationSet>
+          <EntitySet Name="Cities" EntityType="TeachersModel.City" />
+          <EntitySet Name="States" EntityType="TeachersModel.State" />
+          <AssociationSet Name="FK_City_State" Association="TeachersModel.FK_City_State">
+            <End Role="State" EntitySet="States" />
+            <End Role="City" EntitySet="Cities" />
+          </AssociationSet>
+          <EntitySet Name="AvailableTeacherTimes" EntityType="TeachersModel.AvailableTeacherTime" />
+          <AssociationSet Name="FK_UserEnquiries_AvailableTeacherTime" Association="TeachersModel.FK_UserEnquiries_AvailableTeacherTime">
+            <End Role="AvailableTeacherTime" EntitySet="AvailableTeacherTimes" />
+            <End Role="UserEnquiry" EntitySet="UserEnquiries" />
+          </AssociationSet>
+          <EntitySet Name="UserImages" EntityType="TeachersModel.UserImage" />
+          <EntitySet Name="UserVideos" EntityType="TeachersModel.UserVideo" />
+          <EntitySet Name="UserComments" EntityType="TeachersModel.UserComment" />
+          <EntitySet Name="Classes" EntityType="TeachersModel.Class" />
+          <AssociationSet Name="FK_AvailableTeacherTime_Class" Association="TeachersModel.FK_AvailableTeacherTime_Class">
+            <End Role="Class" EntitySet="Classes" />
+            <End Role="AvailableTeacherTime" EntitySet="AvailableTeacherTimes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Class_City" Association="TeachersModel.FK_Class_City">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="Class" EntitySet="Classes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Class_Subjects" Association="TeachersModel.FK_Class_Subjects">
+            <End Role="Subject" EntitySet="Subjects" />
+            <End Role="Class" EntitySet="Classes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Class_UserProfile" Association="TeachersModel.FK_Class_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+            <End Role="Class" EntitySet="Classes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeacherProfile_Class" Association="TeachersModel.FK_TeacherProfile_Class">
+            <End Role="Class" EntitySet="Classes" />
+            <End Role="TeacherProfile" EntitySet="TeacherProfiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserComments_Class" Association="TeachersModel.FK_UserComments_Class">
+            <End Role="Class" EntitySet="Classes" />
+            <End Role="UserComment" EntitySet="UserComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserEnquiries_Class" Association="TeachersModel.FK_UserEnquiries_Class">
+            <End Role="Class" EntitySet="Classes" />
+            <End Role="UserEnquiry" EntitySet="UserEnquiries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserImages_Class" Association="TeachersModel.FK_UserImages_Class">
+            <End Role="Class" EntitySet="Classes" />
+            <End Role="UserImage" EntitySet="UserImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserVideo_UserVideo" Association="TeachersModel.FK_UserVideo_UserVideo">
+            <End Role="Class" EntitySet="Classes" />
+            <End Role="UserVideo" EntitySet="UserVideos" />
+          </AssociationSet>
+          <EntitySet Name="RecoveryDetails" EntityType="TeachersModel.RecoveryDetail" />
+          </EntityContainer>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="PKUserId" />
+          </Key>
+          <Property Name="PKUserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FKRoleId" Type="Int64" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmailId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhotoUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Latitude" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Longitude" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Zipcode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="LoginHistories" Relationship="TeachersModel.FK_LoginHistory_UserProfile" FromRole="UserProfile" ToRole="LoginHistory" />
+          <NavigationProperty Name="Role" Relationship="TeachersModel.FK_UserProfile_Role" FromRole="UserProfile" ToRole="Role" />
+          <NavigationProperty Name="TeacherProfiles" Relationship="TeachersModel.FK_TeacherProfile_UserProfile" FromRole="UserProfile" ToRole="TeacherProfile" />
+          <NavigationProperty Name="UserEnquiries" Relationship="TeachersModel.FK_UserEnquiries_UserProfile" FromRole="UserProfile" ToRole="UserEnquiry" />
+          <NavigationProperty Name="Classes" Relationship="TeachersModel.FK_Class_UserProfile" FromRole="UserProfile" ToRole="Class" />
+        </EntityType>
+        <Association Name="FK_LoginHistory_UserProfile">
+          <End Type="TeachersModel.UserProfile" Role="UserProfile" Multiplicity="1" />
+          <End Type="TeachersModel.LoginHistory" Role="LoginHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="PKUserId" />
+            </Principal>
+            <Dependent Role="LoginHistory">
+              <PropertyRef Name="FKUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserProfile_Role">
+          <End Type="TeachersModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="TeachersModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="PKRoleId" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="FKRoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TeacherProfile">
+          <Key>
+            <PropertyRef Name="PKTeachersId" />
+          </Key>
+          <Property Name="PKTeachersId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FKUserId" Type="Int64" Nullable="false" />
+          <Property Name="FKClassId" Type="Int64" />
+          <Property Name="Experience" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Rating" Type="Decimal" Precision="18" Scale="1" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="UserProfile" Relationship="TeachersModel.FK_TeacherProfile_UserProfile" FromRole="TeacherProfile" ToRole="UserProfile" />
+          <NavigationProperty Name="UserEnquiries" Relationship="TeachersModel.FK_UserEnquiries_TeacherProfile" FromRole="TeacherProfile" ToRole="UserEnquiry" />
+          <NavigationProperty Name="Class" Relationship="TeachersModel.FK_TeacherProfile_Class" FromRole="TeacherProfile" ToRole="Class" />
+        </EntityType>
+        <Association Name="FK_TeacherProfile_UserProfile">
+          <End Type="TeachersModel.UserProfile" Role="UserProfile" Multiplicity="1" />
+          <End Type="TeachersModel.TeacherProfile" Role="TeacherProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="PKUserId" />
+            </Principal>
+            <Dependent Role="TeacherProfile">
+              <PropertyRef Name="FKUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="PKSubjectId" />
+          </Key>
+          <Property Name="PKSubjectId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubjectName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Classes" Relationship="TeachersModel.FK_Class_Subjects" FromRole="Subject" ToRole="Class" />
+        </EntityType>
+        <EntityType Name="UserEnquiry">
+          <Key>
+            <PropertyRef Name="PKEnquiryId" />
+          </Key>
+          <Property Name="PKEnquiryId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FKUserId" Type="Int64" Nullable="false" />
+          <Property Name="FKTeacherId" Type="Int64" Nullable="false" />
+          <Property Name="FKAvailableTimeId" Type="Int64" Nullable="false" />
+          <Property Name="FKClassId" Type="Int64" Nullable="false" />
+          <Property Name="BookedFromDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="BookedToDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="BookedFromTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="BookedToTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BookingStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FollowUP" Type="Boolean" />
+          <NavigationProperty Name="TeacherProfile" Relationship="TeachersModel.FK_UserEnquiries_TeacherProfile" FromRole="UserEnquiry" ToRole="TeacherProfile" />
+          <NavigationProperty Name="UserProfile" Relationship="TeachersModel.FK_UserEnquiries_UserProfile" FromRole="UserEnquiry" ToRole="UserProfile" />
+          <NavigationProperty Name="AvailableTeacherTime" Relationship="TeachersModel.FK_UserEnquiries_AvailableTeacherTime" FromRole="UserEnquiry" ToRole="AvailableTeacherTime" />
+          <NavigationProperty Name="Class" Relationship="TeachersModel.FK_UserEnquiries_Class" FromRole="UserEnquiry" ToRole="Class" />
+        </EntityType>
+        <Association Name="FK_UserEnquiries_TeacherProfile">
+          <End Type="TeachersModel.TeacherProfile" Role="TeacherProfile" Multiplicity="1" />
+          <End Type="TeachersModel.UserEnquiry" Role="UserEnquiry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TeacherProfile">
+              <PropertyRef Name="PKTeachersId" />
+            </Principal>
+            <Dependent Role="UserEnquiry">
+              <PropertyRef Name="FKTeacherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserEnquiries_UserProfile">
+          <End Type="TeachersModel.UserProfile" Role="UserProfile" Multiplicity="1" />
+          <End Type="TeachersModel.UserEnquiry" Role="UserEnquiry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="PKUserId" />
+            </Principal>
+            <Dependent Role="UserEnquiry">
+              <PropertyRef Name="FKUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="PKCityId" />
+          </Key>
+          <Property Name="PKCityId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FKStateId" Type="Int64" Nullable="false" />
+          <Property Name="CityName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="State" Relationship="TeachersModel.FK_City_State" FromRole="City" ToRole="State" />
+          <NavigationProperty Name="Classes" Relationship="TeachersModel.FK_Class_City" FromRole="City" ToRole="Class" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="PKStateId" />
+          </Key>
+          <Property Name="PKStateId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StateName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Cities" Relationship="TeachersModel.FK_City_State" FromRole="State" ToRole="City" />
+        </EntityType>
+        <Association Name="FK_City_State">
+          <End Type="TeachersModel.State" Role="State" Multiplicity="1" />
+          <End Type="TeachersModel.City" Role="City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="PKStateId" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="FKStateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AvailableTeacherTime">
+          <Key>
+            <PropertyRef Name="PKAvailableTeacherTimeId" />
+          </Key>
+          <Property Name="PKAvailableTeacherTimeId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FKClassId" Type="Int64" Nullable="false" />
+          <Property Name="FromAvailableDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ToAvailableDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FromAvailableTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="ToAvailableTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="UserEnquiries" Relationship="TeachersModel.FK_UserEnquiries_AvailableTeacherTime" FromRole="AvailableTeacherTime" ToRole="UserEnquiry" />
+          <NavigationProperty Name="Class" Relationship="TeachersModel.FK_AvailableTeacherTime_Class" FromRole="AvailableTeacherTime" ToRole="Class" />
+        </EntityType>
+        <Association Name="FK_UserEnquiries_AvailableTeacherTime">
+          <End Type="TeachersModel.AvailableTeacherTime" Role="AvailableTeacherTime" Multiplicity="1" />
+          <End Type="TeachersModel.UserEnquiry" Role="UserEnquiry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AvailableTeacherTime">
+              <PropertyRef Name="PKAvailableTeacherTimeId" />
+            </Principal>
+            <Dependent Role="UserEnquiry">
+              <PropertyRef Name="FKAvailableTimeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserImage">
+          <Key>
+            <PropertyRef Name="PKUserImageId" />
+          </Key>
+          <Property Name="PKUserImageId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FKClassId" Type="Int64" Nullable="false" />
+          <Property Name="ImageName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ImageUrl" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="VideoUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Class" Relationship="TeachersModel.FK_UserImages_Class" FromRole="UserImage" ToRole="Class" />
+        </EntityType>
+        <EntityType Name="UserVideo">
+          <Key>
+            <PropertyRef Name="PKUserVideoId" />
+          </Key>
+          <Property Name="PKUserVideoId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FKClassId" Type="Int64" Nullable="false" />
+          <Property Name="VideoUrl" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Class" Relationship="TeachersModel.FK_UserVideo_UserVideo" FromRole="UserVideo" ToRole="Class" />
+        </EntityType>
+        <EntityType Name="UserComment">
+          <Key>
+            <PropertyRef Name="PKUserCommentId" />
+          </Key>
+          <Property Name="PKUserCommentId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FKClassId" Type="Int64" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Comments" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Rating" Type="Decimal" Precision="18" Scale="1" />
+          <NavigationProperty Name="Class" Relationship="TeachersModel.FK_UserComments_Class" FromRole="UserComment" ToRole="Class" />
+        </EntityType>
+        <EntityType Name="Class">
+          <Key>
+            <PropertyRef Name="PKClassId" />
+          </Key>
+          <Property Name="PKClassId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FKUserId" Type="Int64" Nullable="false" />
+          <Property Name="FKSubjectId" Type="Int64" Nullable="false" />
+          <Property Name="FKCityId" Type="Int64" />
+          <Property Name="ClassName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsApproved" Type="Boolean" />
+          <Property Name="ClassImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AreaName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AvailableTeacherTimes" Relationship="TeachersModel.FK_AvailableTeacherTime_Class" FromRole="Class" ToRole="AvailableTeacherTime" />
+          <NavigationProperty Name="City" Relationship="TeachersModel.FK_Class_City" FromRole="Class" ToRole="City" />
+          <NavigationProperty Name="Subject" Relationship="TeachersModel.FK_Class_Subjects" FromRole="Class" ToRole="Subject" />
+          <NavigationProperty Name="UserProfile" Relationship="TeachersModel.FK_Class_UserProfile" FromRole="Class" ToRole="UserProfile" />
+          <NavigationProperty Name="TeacherProfiles" Relationship="TeachersModel.FK_TeacherProfile_Class" FromRole="Class" ToRole="TeacherProfile" />
+          <NavigationProperty Name="UserComments" Relationship="TeachersModel.FK_UserComments_Class" FromRole="Class" ToRole="UserComment" />
+          <NavigationProperty Name="UserEnquiries" Relationship="TeachersModel.FK_UserEnquiries_Class" FromRole="Class" ToRole="UserEnquiry" />
+          <NavigationProperty Name="UserImages" Relationship="TeachersModel.FK_UserImages_Class" FromRole="Class" ToRole="UserImage" />
+          <NavigationProperty Name="UserVideos" Relationship="TeachersModel.FK_UserVideo_UserVideo" FromRole="Class" ToRole="UserVideo" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AvailableTeacherTime_Class">
+          <End Type="TeachersModel.Class" Role="Class" Multiplicity="1" />
+          <End Type="TeachersModel.AvailableTeacherTime" Role="AvailableTeacherTime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="PKClassId" />
+            </Principal>
+            <Dependent Role="AvailableTeacherTime">
+              <PropertyRef Name="FKClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Class_City">
+          <End Type="TeachersModel.City" Role="City" Multiplicity="0..1" />
+          <End Type="TeachersModel.Class" Role="Class" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="PKCityId" />
+            </Principal>
+            <Dependent Role="Class">
+              <PropertyRef Name="FKCityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Class_Subjects">
+          <End Type="TeachersModel.Subject" Role="Subject" Multiplicity="1" />
+          <End Type="TeachersModel.Class" Role="Class" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="PKSubjectId" />
+            </Principal>
+            <Dependent Role="Class">
+              <PropertyRef Name="FKSubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Class_UserProfile">
+          <End Type="TeachersModel.UserProfile" Role="UserProfile" Multiplicity="1" />
+          <End Type="TeachersModel.Class" Role="Class" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="PKUserId" />
+            </Principal>
+            <Dependent Role="Class">
+              <PropertyRef Name="FKUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeacherProfile_Class">
+          <End Type="TeachersModel.Class" Role="Class" Multiplicity="0..1" />
+          <End Type="TeachersModel.TeacherProfile" Role="TeacherProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="PKClassId" />
+            </Principal>
+            <Dependent Role="TeacherProfile">
+              <PropertyRef Name="FKClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserComments_Class">
+          <End Type="TeachersModel.Class" Role="Class" Multiplicity="1" />
+          <End Type="TeachersModel.UserComment" Role="UserComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="PKClassId" />
+            </Principal>
+            <Dependent Role="UserComment">
+              <PropertyRef Name="FKClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserEnquiries_Class">
+          <End Type="TeachersModel.Class" Role="Class" Multiplicity="1" />
+          <End Type="TeachersModel.UserEnquiry" Role="UserEnquiry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="PKClassId" />
+            </Principal>
+            <Dependent Role="UserEnquiry">
+              <PropertyRef Name="FKClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserImages_Class">
+          <End Type="TeachersModel.Class" Role="Class" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="TeachersModel.UserImage" Role="UserImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="PKClassId" />
+            </Principal>
+            <Dependent Role="UserImage">
+              <PropertyRef Name="FKClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserVideo_UserVideo">
+          <End Type="TeachersModel.Class" Role="Class" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="TeachersModel.UserVideo" Role="UserVideo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="PKClassId" />
+            </Principal>
+            <Dependent Role="UserVideo">
+              <PropertyRef Name="FKClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="RecoveryDetail">
+          <Key>
+            <PropertyRef Name="RecoveryID" />
+          </Key>
+          <Property Name="RecoveryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RecoveryDetails" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="value" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TeachersModelStoreContainer" CdmEntityContainer="TeachersEntities">
+          <EntitySetMapping Name="LoginHistories">
+            <EntityTypeMapping TypeName="TeachersModel.LoginHistory">
+              <MappingFragment StoreEntitySet="LoginHistory">
+                <ScalarProperty Name="PKLoginHistoryId" ColumnName="PKLoginHistoryId" />
+                <ScalarProperty Name="FKUserId" ColumnName="FKUserId" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="LoginDate" ColumnName="LoginDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="TeachersModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="PKRoleId" ColumnName="PKRoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfiles">
+            <EntityTypeMapping TypeName="TeachersModel.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PhotoUrl" ColumnName="PhotoUrl" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="FKRoleId" ColumnName="FKRoleId" />
+                <ScalarProperty Name="PKUserId" ColumnName="PKUserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeacherProfiles">
+            <EntityTypeMapping TypeName="TeachersModel.TeacherProfile">
+              <MappingFragment StoreEntitySet="TeacherProfile">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="FKClassId" ColumnName="FKClassId" />
+                <ScalarProperty Name="FKUserId" ColumnName="FKUserId" />
+                <ScalarProperty Name="PKTeachersId" ColumnName="PKTeachersId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subjects">
+            <EntityTypeMapping TypeName="TeachersModel.Subject">
+              <MappingFragment StoreEntitySet="Subjects">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />
+                <ScalarProperty Name="PKSubjectId" ColumnName="PKSubjectId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserEnquiries">
+            <EntityTypeMapping TypeName="TeachersModel.UserEnquiry">
+              <MappingFragment StoreEntitySet="UserEnquiries">
+                <ScalarProperty Name="FollowUP" ColumnName="FollowUP" />
+                <ScalarProperty Name="BookingStatus" ColumnName="BookingStatus" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="BookedToTime" ColumnName="BookedToTime" />
+                <ScalarProperty Name="BookedFromTime" ColumnName="BookedFromTime" />
+                <ScalarProperty Name="BookedToDate" ColumnName="BookedToDate" />
+                <ScalarProperty Name="BookedFromDate" ColumnName="BookedFromDate" />
+                <ScalarProperty Name="FKClassId" ColumnName="FKClassId" />
+                <ScalarProperty Name="FKAvailableTimeId" ColumnName="FKAvailableTimeId" />
+                <ScalarProperty Name="FKTeacherId" ColumnName="FKTeacherId" />
+                <ScalarProperty Name="FKUserId" ColumnName="FKUserId" />
+                <ScalarProperty Name="PKEnquiryId" ColumnName="PKEnquiryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="TeachersModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="FKStateId" ColumnName="FKStateId" />
+                <ScalarProperty Name="PKCityId" ColumnName="PKCityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="TeachersModel.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="PKStateId" ColumnName="PKStateId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AvailableTeacherTimes">
+            <EntityTypeMapping TypeName="TeachersModel.AvailableTeacherTime">
+              <MappingFragment StoreEntitySet="AvailableTeacherTime">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ToAvailableTime" ColumnName="ToAvailableTime" />
+                <ScalarProperty Name="FromAvailableTime" ColumnName="FromAvailableTime" />
+                <ScalarProperty Name="ToAvailableDate" ColumnName="ToAvailableDate" />
+                <ScalarProperty Name="FromAvailableDate" ColumnName="FromAvailableDate" />
+                <ScalarProperty Name="FKClassId" ColumnName="FKClassId" />
+                <ScalarProperty Name="PKAvailableTeacherTimeId" ColumnName="PKAvailableTeacherTimeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserImages">
+            <EntityTypeMapping TypeName="TeachersModel.UserImage">
+              <MappingFragment StoreEntitySet="UserImages">
+                <ScalarProperty Name="VideoUrl" ColumnName="VideoUrl" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+                <ScalarProperty Name="FKClassId" ColumnName="FKClassId" />
+                <ScalarProperty Name="PKUserImageId" ColumnName="PKUserImageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserVideos">
+            <EntityTypeMapping TypeName="TeachersModel.UserVideo">
+              <MappingFragment StoreEntitySet="UserVideo">
+                <ScalarProperty Name="VideoUrl" ColumnName="VideoUrl" />
+                <ScalarProperty Name="FKClassId" ColumnName="FKClassId" />
+                <ScalarProperty Name="PKUserVideoId" ColumnName="PKUserVideoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserComments">
+            <EntityTypeMapping TypeName="TeachersModel.UserComment">
+              <MappingFragment StoreEntitySet="UserComments">
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="FKClassId" ColumnName="FKClassId" />
+                <ScalarProperty Name="PKUserCommentId" ColumnName="PKUserCommentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Classes">
+            <EntityTypeMapping TypeName="TeachersModel.Class">
+              <MappingFragment StoreEntitySet="Class">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+                <ScalarProperty Name="ClassImage" ColumnName="ClassImage" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="FKCityId" ColumnName="FKCityId" />
+                <ScalarProperty Name="FKSubjectId" ColumnName="FKSubjectId" />
+                <ScalarProperty Name="FKUserId" ColumnName="FKUserId" />
+                <ScalarProperty Name="PKClassId" ColumnName="PKClassId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecoveryDetails">
+            <EntityTypeMapping TypeName="TeachersModel.RecoveryDetail">
+              <MappingFragment StoreEntitySet="RecoveryDetail">
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="RecoveryDetails" ColumnName="RecoveryDetails" />
+                <ScalarProperty Name="RecoveryID" ColumnName="RecoveryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

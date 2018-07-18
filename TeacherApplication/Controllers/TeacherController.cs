@@ -26,7 +26,7 @@ namespace TeacherApplication.Controllers
         #region class
         public ActionResult Classes()
         {
-            return View(DbHelper.GetClasses(Helper.UserId));
+			return View(DbHelper.GetClasses(Helper.UserId, null, null));
         }
         public ActionResult CreateClass()
         {
@@ -52,39 +52,58 @@ namespace TeacherApplication.Controllers
             }
             return View(objClass);
         }
+		[Authorize]
         public ActionResult EditClass(int id)
         {
-            Class cls = DbHelper.GetClass(id);
+			Category objCat = new Category();
+			Class cls = DbHelper.GetClass(id);
+			TeacherProfile teacherProfile = DbHelper.GetTeacherProfile(id);
+			objCat.Class = cls;
+			objCat.TeacherProfile = teacherProfile;
             ViewBag.Subject = new SelectList(DbHelper.GetSubjects(), "PKSubjectId", "SubjectName", cls.FKSubjectId);
-            ViewBag.Cities = new SelectList(DbHelper.GetAllCities(), "PKCityId", "CityName", cls.FKCityId);
-            ViewBag.stateId = cls.City.FKStateId;
+			List<City> citiesList = DbHelper.GetAllCities();
+			objCat.Cities = citiesList.Where(x => x.FKStateId == cls.City.FKStateId).ToList();
+			ViewBag.Cities = objCat.Cities;
+			ViewBag.stateId = cls.City.FKStateId;
             ViewBag.States = new SelectList(DbHelper.GetStates(), "PKStateId", "StateName", cls.City.FKStateId);
-            return View(cls);
+            return View(objCat);
         }
         [HttpPost]
-        public ActionResult EditClass(Class objClass, HttpPostedFileBase classImg)
+		[Authorize]
+		public ActionResult EditClass(Category catmodel, HttpPostedFileBase classImg)
         {
-            ViewBag.Cities = new SelectList(DbHelper.GetAllCities(), "PKCityId", "CityName", objClass.FKCityId);
-            ViewBag.States = new SelectList(DbHelper.GetStates(), "PKStateId", "StateName");
-            ViewBag.Subject = new SelectList(DbHelper.GetSubjects(), "PKSubjectId", "SubjectName", objClass.FKSubjectId);
-            if (ModelState.IsValid)
-            {
+
+			//ViewBag.Cities = new SelectList(DbHelper.GetAllCities(), "PKCityId", "CityName", catmodel.Class.FKCityId);
+   //         ViewBag.States = new SelectList(DbHelper.GetStates(), "PKStateId", "StateName");
+   //         ViewBag.Subject = new SelectList(DbHelper.GetSubjects(), "PKSubjectId", "SubjectName", catmodel.Class.FKSubjectId);
+            //if (ModelState.IsValid)
+            //{
                 if (classImg != null)
                 {
                     string imageName = System.IO.Path.GetFileName(classImg.FileName);
-                    classImg.SaveAs(Server.MapPath("~/Images/" + Helper.UserId + "_" + objClass.FKSubjectId + "_" + imageName));
-                    objClass.ClassImage = "/Images/" + Helper.UserId + "_" + objClass.FKSubjectId + "_" + imageName;
+                    classImg.SaveAs(Server.MapPath("~/Images/" + Helper.UserId + "_" + catmodel.Class.FKSubjectId + "_" + imageName));
+					catmodel.Class.ClassImage = "/Images/" + Helper.UserId + "_" + catmodel.Class.FKSubjectId + "_" + imageName;
                 }
-                DbHelper.UpdateClass(objClass);
+				
+                DbHelper.UpdateClass(catmodel.Class);
+				DbHelper.UpdateTeacherProfile(catmodel.TeacherProfile);
                 return RedirectToAction("Classes");
-            }
-            return View(objClass);
+          //  }
+           // return View(catmodel);
         }
         //Get Class on Id
         public ActionResult ClassDetails(int id)
         {
             return View(DbHelper.GetClass(id));
         }
+
+		public ActionResult DeleteClass(int id)
+		{
+			Class cls = DbHelper.GetClass(id);
+			cls.IsActive = false;
+			DbHelper.UpdateClass(cls);
+			return RedirectToAction("Classes");
+		}
         #endregion
 
         #region TeacherProfile
@@ -320,7 +339,7 @@ namespace TeacherApplication.Controllers
                 photo.SaveAs(Server.MapPath("~/Images/" + Helper.UserId + "-" + imageName));
                 objUserProfile.PhotoUrl = "/Images/" + Helper.UserId + "-" + imageName;
             }
-            objUserProfile.IsActive = true;
+            
             DbHelper.UpdateUsers(objUserProfile);
             return View(DbHelper.GetUserProfile(objUserProfile.PKUserId));
         }
@@ -348,14 +367,21 @@ namespace TeacherApplication.Controllers
         //Edit Teacher AvailableTeacherProfile based on AvailableTeacherProfileId
         public ActionResult EditTeacherAvailableTime(long id = 0)
         {
-            AvailableTeacherTime objAvailableTeacherTime = DbHelper.GetAvailableTeacherTime(id);
-            return View(objAvailableTeacherTime);
+			Category objCategory = new Category();
+			AvailableTeacherTime objAvailableTeacherTime = DbHelper.GetAvailableTeacherTime(id);
+			objCategory.AvalilableTeacher = objAvailableTeacherTime;
+			objCategory.Class = DbHelper.GetClass((int)objAvailableTeacherTime.FKClassId);
+			
+			
+            return View(objCategory);
         }
         [HttpPost]
         public ActionResult EditTeacherAvailableTime(AvailableTeacherTime objAvailableTeacherTime)
         {
-
-            DbHelper.UpdateAvailableTeacherTime(objAvailableTeacherTime);
+			Category objCategory = new Category();
+			//objCategory.AvalilableTeacher.FKClassId = DbHelper.GetClass((int)objAvailableTeacherTime.FKClassId);
+			//objAvailableTeacherTime.FKClassId=  DbHelper.GetClass((int)(objAvailableTeacherTime.FKClassId));
+			DbHelper.UpdateAvailableTeacherTime(objAvailableTeacherTime);
             return View("Index");
         }
         //Delete AvailableTeacherTime based on AvailableTeacherProfileId
@@ -434,6 +460,7 @@ namespace TeacherApplication.Controllers
         [HttpPost]
         public ActionResult AddClass(Category category, HttpPostedFileBase classImg, IEnumerable<HttpPostedFileBase> image)
         {
+
             ViewBag.Cities = new SelectList(DbHelper.GetAllCities(), "PKCityId", "CityName");
             ViewBag.States = new SelectList(DbHelper.GetStates(), "PKStateId", "StateName");
             ViewBag.Subject = new SelectList(DbHelper.GetSubjects(), "PKSubjectId", "SubjectName");
@@ -463,6 +490,7 @@ namespace TeacherApplication.Controllers
             DbHelper.InsertTeacherProfile(category.TeacherProfile);
             category.AvalilableTeacher.FKClassId = category.Class.PKClassId;
             category.AvalilableTeacher.IsActive = true;
+			category.Class.IsActive = true;
             category.AvalilableTeacher.FKClassId = category.Class.PKClassId;
             DbHelper.InsertAvailableTeacherTime(category.AvalilableTeacher);
             category.userImage = new UserImage();

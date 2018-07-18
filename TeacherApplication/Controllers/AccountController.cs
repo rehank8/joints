@@ -47,27 +47,41 @@ namespace TeacherApplication.Controllers
                     //objLoginHistory.IPAddress = ip;
                     objLoginHistory.IPAddress = System.Web.HttpContext.Current.Request.UserHostAddress;
                     DbHelper.InsertLoginHistory(objLoginHistory);
+					Session["user"] = objLoginModel.UserName;
 
-                    if (objUserProfile.Role.RoleName == "Admin")
+					//HttpCookie cook = new HttpCookie("setcookie");
+					//cook.Value= objLoginModel.UserName;
+					//cook.Path = Request.ApplicationPath;
+					//Response.Cookies.Add(cook);
+
+					//string returl = Request.QueryString["ret"];
+
+					//if (string.IsNullOrEmpty(returl))
+					//{
+
+					//}
+
+					if (objUserProfile.Role.RoleName == "Admin")
                     {
                         if (returnurl.Contains("Admin"))
                             return Redirect(returnurl);
-                        else
-                            return RedirectToAction("Index", "Admin");
+                        else if (Session["UserData"]!=null)
+
+							return RedirectToAction("Index", "Admin");
                     }
                     else if (objUserProfile.Role.RoleName == "Teacher"|| objUserProfile.Role.RoleName=="Vender")
                     {
                         if (returnurl.Contains("/Teacher/"))
                             return Redirect(returnurl);
-                        else
-                            return RedirectToAction("Index", "Teacher");
+                        else if (Session["UserData"] != null)
+							return RedirectToAction("Classes", "Teacher");
                     }
                     else if (objUserProfile.Role.RoleName == "User")
                     {
                         if (!string.IsNullOrEmpty(returnurl))
                             return Redirect(returnurl);
-                        else
-                            return RedirectToAction("Index", "User");
+                        else if (Session["UserData"] != null)
+							return RedirectToAction("Index", "User");
                     }
                     else
                     {
@@ -100,7 +114,7 @@ namespace TeacherApplication.Controllers
             {
                 Request.Cookies.Remove(cookie);
             }
-            return RedirectToAction("Login", "Account");
+            return RedirectToAction("Index", "User");
         }
 
         public ActionResult Registration()

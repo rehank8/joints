@@ -20,7 +20,7 @@ namespace TeacherApplication.Controllers
     {
 
         // GET: User
-        public ActionResult Index(string Location = "")
+        public ActionResult Index()
         {
             //ViewBag.Location = "City";
             ViewBag.CatName = "Photorapher,DJ,Chef,Banquethall,Limousine,Stage,Flower";
@@ -29,11 +29,32 @@ namespace TeacherApplication.Controllers
             //ViewBag.Location = cities;
             //ViewBag.Subjects = new SelectList(DbHelper.GetSubjects(), "SubjectName", "SubjectName");
             ViewBag.FooterCities = DbHelper.GetAllCities();
-            // ViewBag.Cities = new SelectList(DbHelper.GetAllCities(), "PKCityId", "CityName");
-            //ViewBag.State = new SelectList(DbHelper.GetStates(), "PKStateId", "StateName");
-            Roleslst();
+			// ViewBag.Cities = new SelectList(DbHelper.GetAllCities(), "PKCityId", "CityName");
+			//ViewBag.State = new SelectList(DbHelper.GetStates(), "PKStateId", "StateName");
+			if (Request.IsAuthenticated)
+			{
+				if (Helper.RoleName.ToLower() == "vendor"||Helper.RoleName.ToLower()=="teacher")
+				{
+					return RedirectToAction("Index", "Teacher");
+				}
+				else if (Helper.RoleName.ToLower() == "admin")
+				{
+					return RedirectToAction("Index", "Admin");
+				}
+
+
+
+			}
+		
+			Roleslst();
             return View(new List<Domain.UserIndex>());
         }
+
+		public ActionResult checkifuseralreadylogin()
+		{
+			
+			return View();
+		}
         [HttpPost]
         public ActionResult Index(FormCollection fc)
         {
@@ -46,14 +67,14 @@ namespace TeacherApplication.Controllers
             ViewBag.Location = city;
             ViewBag.CatName = sub ?? "services";
             ViewBag.City = (city == "" ? location : city);
-            IEnumerable<UserIndex> result = new List<UserIndex>();
+           IEnumerable<UserIndex> result = new List<UserIndex>();
             if (!string.IsNullOrEmpty(city))
             {
                 result = DbHelper.GetTeachersForHome(sub).Where(x => (x.CityName ?? "").ToLower().Contains(city.ToLower()));
                 if (result.Count() == 0)
                     result = DbHelper.GetTeachersForHome(sub).Where(x => x.Location.ToLower().Contains(city.ToLower()));
             }
-
+             
             if (result.Count() == 0)
             {
                 result = DbHelper.GetTeachersForHome(sub).Where(x => x.Location.ToLower().Contains(location.ToLower().Trim()));
@@ -79,10 +100,10 @@ namespace TeacherApplication.Controllers
         public ActionResult UserDetails(FormCollection fc)
         {
             StringBuilder str = new StringBuilder();
-            str.Append("Dear " + fc["VenderName"]);
+            str.Append("Dear "+fc["VenderName"]);
             str.Append("<br/><br/>");
             str.Append("Enquiry Details:- <br/>");
-            str.Append("Name:" + fc["name"] + "<br/> EmailId:" + fc["email"] + "<br/> Phone Number:" + fc["phoneNumber"] + "<br/> enquiry:" + fc["enquiry"]);
+            str.Append("Name:" + fc["name"]+"<br/> EmailId:"+fc["email"]+"<br/> Phone Number:"+fc["phoneNumber"]+ "<br/> enquiry:"+fc["enquiry"]);
             str.Append($"<p>This is an automatically generated message to confirm receipt of your Booking via the Internet.You do not need to reply to this e - mail, but you may wish to save it for your records.<br/>Thank you.</p>");
             str.Append($"<br/>WarmRegards,<br/> SupportTeam");
             GmailHelper.Send(fc["VendorEmailId"], "Regarding Enquiry", str.ToString());
@@ -151,10 +172,10 @@ namespace TeacherApplication.Controllers
         {
             string userName = Helper.UserName;
             Task t1 = Task.Run(() =>
-            {
-                if (!string.IsNullOrEmpty(comment))
-                    DbHelper.AddUserComments(new UserComment() { Comments = comment, FKClassId = classId, UserName = userName, Rating = rating });
-            });
+              {
+                  if (!string.IsNullOrEmpty(comment))
+                      DbHelper.AddUserComments(new UserComment() { Comments = comment, FKClassId = classId, UserName = userName, Rating = rating });
+              });
             Task t2 = Task.Run(() =>
             {
                 if (rating != 0)

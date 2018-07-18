@@ -1,83 +1,130 @@
-﻿@model Domain.Class
+﻿@model TeacherApplication.Models.Category
 
 @{
-    ViewBag.Title = "EditClass";
-    //Layout = "~/Views/Shared/_TeacherLayout.cshtml";
-    Layout = "~/Views/Shared/_TeacherNewLayout.cshtml";
+	ViewBag.Title = "EditClass";
+	//Layout = "~/Views/Shared/_TeacherLayout.cshtml";
+	Layout = "~/Views/Shared/_TeacherNewLayout.cshtml";
 }
 
 <h2>Edit Class</h2>
 <div class="text-center">
-    <a href="@Url.Action("TeacherImages","Teacher",new {classId=Model.PKClassId })"><input class="w3-button w3-teal" type="button" value="Edit Images" /></a>
-    <a href="@Url.Action("TeacherVideos","Teacher",new {id=Model.PKClassId })"><input type="button" value="Edit Videos" class="w3-button w3-border-blue w3-teal" /></a>
+	<a href="@Url.Action("TeacherImages","Teacher",new {classId=Model.Class.PKClassId })"><input class="w3-button w3-teal" type="button" value="Edit Images" /></a>
+	<a href="@Url.Action("TeacherVideos","Teacher",new {id=Model.Class.PKClassId })"><input type="button" value="Edit Videos" class="w3-button w3-border-blue w3-teal" /></a>
 </div>
 
 @using (Html.BeginForm("EditClass", "Teacher", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.PKClassId)
-        @Html.HiddenFor(model=>model.FKUserId)
-        @Html.HiddenFor(model=>model.IsApproved)
-        @Html.HiddenFor(model=>model.ClassImage)
+	@Html.AntiForgeryToken()
 
-        <div class="form-group">
-            @Html.Label("State", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-6">
-                @Html.DropDownList("States", ViewBag.States as SelectList, "Please Select State", htmlAttributes: new { @class = "form-control" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.Label("City", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-6">
-                @Html.DropDownList("FKCityId", ViewBag.Cities as SelectList, "Please Select City", htmlAttributes: new { @class = "form-control" })
-            </div>
-        </div>
+<div class="form-horizontal">
+	<hr />
+	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+	@Html.HiddenFor(model => model.Class.PKClassId)
+	@Html.HiddenFor(model => model.TeacherProfile.PKTeachersId)
+	@Html.HiddenFor(model => model.TeacherProfile.FKClassId)
+	@Html.HiddenFor(model => model.TeacherProfile.FKUserId)
+	
+	@Html.HiddenFor(model => model.Class.FKUserId)
+	@Html.HiddenFor(model => model.Class.IsApproved)
+	@Html.HiddenFor(model => model.Class.ClassImage)
+	@Html.HiddenFor(model => model.TeacherProfile.Rating)
+	@*@Html.HiddenFor(model=>model.Class.IsActive)*@
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ClassName,"Category Name", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-6">
-                @Html.EditorFor(model => model.ClassName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ClassName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.FKSubjectId, "Subject Name", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-6">
-                @Html.DropDownListFor(model => model.FKSubjectId, ViewBag.Subject as SelectList, "Select Subject",new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.FKSubjectId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-       
-        <div class="form-group">
-            <label class="control-label col-md-2"></label>
-            <div class="col-md-10">
-                <img src="@Model.ClassImage" class="img-rounded" style="width:100px;height:100px" />
-            </div>
-        </div>
-        
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="w3-button w3-white w3-border w3-border-blue w3-round-large" />
-                <a href='@Url.Action("Classes","Teacher")'><input type="button" class="w3-button w3-white w3-border w3-border-red w3-round-large" value="Cancel"/></a>
-            </div>
-        </div>
-    </div>
+	<div class="form-group">
+		@Html.Label("State", htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-6">
+			@Html.DropDownList("States", ViewBag.States as SelectList, "Please Select State", htmlAttributes: new { @class = "form-control" })
+		</div>
+	</div>
+	<div class="form-group">
+		@Html.Label("City", htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-6">
+			@*@Html.DropDownList("FKCityId",  new SelectList(ViewBag.Cities, "PKCityId", "CityName",Model.Class.FKCityId), htmlAttributes: new { @class = "form-control" })*@
+			@*@Html.DropDownList("FKCityId", ViewBag.Cities as SelectList, "Please Select City", htmlAttributes: new { @class = "form-control" })*@
+			@Html.DropDownListFor(x=>x.Class.FKCityId, new SelectList(Model.Cities, "PKCityId", "CityName", Model.Class.FKCityId),new { @class="form-control",id= "FKCityId" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.Class.ClassName, "Business Name", htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-6">
+			@Html.EditorFor(model => model.Class.ClassName, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.Class.ClassName, "", new { @class = "text-danger" })
+		</div>
+	</div>
+	<div class="form-group">
+		@Html.LabelFor(model => model.Class.FKSubjectId, "Business Type", htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-6">
+			@Html.DropDownListFor(model => model.Class.FKSubjectId, ViewBag.Subject as SelectList, "Select Subject", new { @class = "form-control" })
+			@Html.ValidationMessageFor(model => model.Class.FKSubjectId, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.TeacherProfile.Experience, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.TeacherProfile.Experience, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.TeacherProfile.Experience, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.TeacherProfile.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.TeacherProfile.Description, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.TeacherProfile.Description, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+
+
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.Class.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			<div class="checkbox">
+				@Html.EditorFor(model => model.Class.IsActive)
+				@*@Html.ValidationMessageFor(model => model.Class.IsActive, "", new { @class = "text-danger" })*@
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		@Html.LabelFor(model => model.Class.AreaName, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			
+				@Html.EditorFor(model => model.Class.AreaName, new { htmlAttributes = new { @class = "form-control" } })
+				@Html.ValidationMessageFor(model => model.Class.AreaName, "", new { @class = "text-danger" })
+			
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="control-label col-md-2"></label>
+		<div class="col-md-10">
+			<img src="@Model.Class.ClassImage" class="img-rounded" style="width:100px;height:100px" />
+			<input type="file" name="classImg" />
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-md-offset-2 col-md-10">
+			<input type="submit" value="Save" class="w3-button w3-white w3-border w3-border-blue w3-round-large" />
+			<a href='@Url.Action("Classes","Teacher")'><input type="button" class="w3-button w3-white w3-border w3-border-red w3-round-large" value="Cancel" /></a>
+		</div>
+	</div>
+</div>
 
 }
 
 <div>
-    
+
 </div>
 
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 @section Scripts{
-    <script type="text/javascript">
+	<script type="text/javascript">
         $(document).ready(function () {
             $("#States option[value=" +@ViewBag.stateId+ "]").attr("selected", "selected");
             $('#States').change(function () {
@@ -90,6 +137,6 @@
                 })
             })
         });
-    </script>
+	</script>
 }
 

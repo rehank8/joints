@@ -21,11 +21,11 @@
                 @Html.DisplayName("Vender name")
             </th>
             <th>
-                @Html.DisplayName(" Vendor Category Name")
+                @Html.DisplayName(" Vendor Business Name")
             </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.SubjectName)
-            </th>*@
+            <th>
+                @Html.DisplayName(" Vendor Location")
+            </th>
             <th></th>
         </tr>
 
@@ -38,9 +38,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.ClassName)
                 </td>
-                @*<td>
-                    @Html.DisplayFor(modelItem => item.SubjectName)
-                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.AreaName)
+                </td>
 
                 <td>
                     <a href="@Url.Action("EditClass",new {id=item.PKClassId })"><input type="button" value="Edit" class="btn btn-success" /></a>

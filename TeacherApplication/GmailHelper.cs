@@ -20,12 +20,12 @@ namespace TeacherApplication
             message.Body = messageBody;
             SmtpClient smtp = new SmtpClient();
             smtp.Host = "smtp.gmail.com";
-            smtp.Port = 587;
+            smtp.Port = 465;
             smtp.UseDefaultCredentials = false;
             smtp.EnableSsl = true;
-            NetworkCredential nc = new NetworkCredential("sandeep.mvn@deccansoft.com", "sandeep.mvn@123");
+            NetworkCredential nc = new NetworkCredential("mohammedkhateeb7@gmailcom", "nuzhatk123");
             smtp.Credentials = nc;
-            smtp.Send(message);
+           smtp.Send(message);
         }
     }
 }

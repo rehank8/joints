@@ -11,7 +11,7 @@
 <table class="table table-bordered table-responsive w3-hoverable w3-white">
     <tr class="success">
         <th>
-            @Html.DisplayName("Category Name")
+            @Html.DisplayName("Business Name")
         </th>
         <th>
             @Html.DisplayNameFor(model => model.FromAvailableDate)
@@ -57,7 +57,7 @@
         <td>
             <a href="/Teacher/EditTeacherAvailableTime/@item.PKAvailableTeacherTimeId"><input type="button" value="Edit" class="w3-button w3-white w3-border w3-border-blue w3-round-large" /></a>
             @*<a href="/Teacher/Details/@item.PKAvailableTeacherTimeId"><input type="button" value="Details" class="btn btn-info" /></a>*@
-            <a href="/Teacher/DeleteAvailableTeacherTime/@item.PKAvailableTeacherTimeId"><input type="button" value="Delete" class="w3-button w3-white w3-border w3-border-red w3-round-large" /></a>
+            @*<a href="/Teacher/DeleteAvailableTeacherTime/@item.PKAvailableTeacherTimeId"><input type="button" value="Delete" class="w3-button w3-white w3-border w3-border-red w3-round-large" /></a>*@
         </td>
     </tr>
 }

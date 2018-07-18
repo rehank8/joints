@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Domain.UserIndex>
+﻿@model IEnumerable<Domain.UserIndex> 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Userlayout - Copy.cshtml";
@@ -204,11 +204,6 @@
                 //var country = result.split(',')[result.split(',').length - 1];
                 //var location = "Venders in " + result.split(',')[result.split(',').length - 3];
                 var location = "BanquetHall ,Chef ,Dj, Limousine ,Photographer,  StageDecorater ,Dresses  in" + result.split(',')[result.split(',').length - 3];
-                var url = window.location.href;
-                if (!url.find(result.split(',')[result.split(',').length - 3]))
-                {
-                    window.location.assign("/?Location=" + result.split(',')[result.split(',').length - 3]);
-                }
                 if (city == "") {
                     $("#loc").val(result.split(',')[result.split(',').length - 3]);
                     if (category == "")
@@ -222,12 +217,12 @@
                         $('#location').html("BanquetHall ,Chef ,Dj, Limousine ,Photographer,  StageDecorater ,Dresses in "+ city);
                     else
                         $('#location').html(category + " in " + city);
-
+                   
                 }
                 GetVendors(result.split(',')[result.split(',').length - 3]);
             });
 
-
+          
 
             function GetVendors(cityName) {
                 var category = $('#categoryName').html();

@@ -12,18 +12,18 @@
             @Html.DisplayNameFor(model => model.Experience)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayName("Location")
         </th>
         <th>
             @Html.DisplayNameFor(model => model.IsActive)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UserProfile.UserName)
+            @Html.DisplayName("Description")
         </th>
         <th>
-            @Html.DisplayName("Category Name")
+            @Html.DisplayName("Business Name")
         </th>
-        <th></th>
+        <th>Actions</th>
     </tr>
 
 @foreach (var item in Model)
@@ -33,13 +33,13 @@
             @Html.DisplayFor(modelItem => item.Experience)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Description)
+            @Html.DisplayFor(modelItem => item.Class.AreaName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IsActive)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.UserProfile.UserName)
+            @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Class.ClassName)

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3d0b4639549246ed8c41791fc1831b02" Name="Diagram1">
+        <EntityTypeShape EntityType="TeachersModel.LoginHistory" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeachersModel.Role" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TeachersModel.UserProfile" Width="1.5" PointX="3" PointY="5" />
+        <AssociationConnector Association="TeachersModel.FK_LoginHistory_UserProfile" />
+        <AssociationConnector Association="TeachersModel.FK_UserProfile_Role" />
+        <EntityTypeShape EntityType="TeachersModel.TeacherProfile" Width="1.5" PointX="7.5" PointY="9.5" />
+        <AssociationConnector Association="TeachersModel.FK_TeacherProfile_UserProfile" />
+        <EntityTypeShape EntityType="TeachersModel.Subject" Width="1.5" PointX="7" PointY="0.625" />
+        <EntityTypeShape EntityType="TeachersModel.UserEnquiry" Width="1.5" PointX="10.5" PointY="5.375" />
+        <AssociationConnector Association="TeachersModel.FK_UserEnquiries_TeacherProfile" />
+        <AssociationConnector Association="TeachersModel.FK_UserEnquiries_UserProfile" />
+        <EntityTypeShape EntityType="TeachersModel.City" Width="1.5" PointX="0.75" PointY="11.875" />
+        <EntityTypeShape EntityType="TeachersModel.State" Width="1.5" PointX="1.5" PointY="16" />
+        <AssociationConnector Association="TeachersModel.FK_City_State" />
+        <EntityTypeShape EntityType="TeachersModel.AvailableTeacherTime" Width="1.5" PointX="5.25" PointY="14.625" />
+        <AssociationConnector Association="TeachersModel.FK_UserEnquiries_AvailableTeacherTime" />
+        <EntityTypeShape EntityType="TeachersModel.UserImage" Width="1.5" PointX="5.25" PointY="19" />
+        <EntityTypeShape EntityType="TeachersModel.UserVideo" Width="1.5" PointX="15.5" PointY="6.5" />
+        <EntityTypeShape EntityType="TeachersModel.UserComment" Width="1.5" PointX="15.5" PointY="9.375" />
+        <EntityTypeShape EntityType="TeachersModel.Class" Width="1.5" PointX="13.25" PointY="5.25" />
+        <AssociationConnector Association="TeachersModel.FK_AvailableTeacherTime_Class" />
+        <AssociationConnector Association="TeachersModel.FK_Class_City" />
+        <AssociationConnector Association="TeachersModel.FK_Class_Subjects" />
+        <AssociationConnector Association="TeachersModel.FK_Class_UserProfile" />
+        <AssociationConnector Association="TeachersModel.FK_TeacherProfile_Class" />
+        <AssociationConnector Association="TeachersModel.FK_UserComments_Class" />
+        <AssociationConnector Association="TeachersModel.FK_UserEnquiries_Class" />
+        <AssociationConnector Association="TeachersModel.FK_UserImages_Class" />
+        <AssociationConnector Association="TeachersModel.FK_UserVideo_UserVideo" />
+        <EntityTypeShape EntityType="TeachersModel.RecoveryDetail" Width="1.5" PointX="0.75" PointY="0.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

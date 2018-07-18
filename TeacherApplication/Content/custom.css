@@ -161,10 +161,10 @@ background-color:red}
 	background:#fff;}*/	
 
 	
-/*body{
-	background:#fef4f1 !important;}*/
+body{
+	background:#fef4f1;}
 .jumbotron{
-    /*margin:50px 0 0 0;*/
+    margin:50px 0 0 0;
 	background-color:#361e16;
 	background-image:url(../Images/headerBg.png);
 	background-position:left bottom;
@@ -303,11 +303,11 @@ height:5px;
 padding: 10px; 
 background-color:red}
 
-/*.navbar-toggle{
+.navbar-toggle{
 	border:none !important;}
 	
 .navbar-toggle:hover, .navbar-toggle:focus{
 	background:#ddd !important;}
 	
 .navbar-default .navbar-toggle .icon-bar{
-	background:#fff;}*/			
+	background:#fff;}			

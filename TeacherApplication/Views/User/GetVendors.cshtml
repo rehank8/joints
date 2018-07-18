@@ -1,4 +1,7 @@
 ﻿@model IEnumerable<Domain.UserIndex>
+@*@model IEnumerable<Domain.Class>*@
+@*@model IEnumerable<Domain.TeacherProfile>*@
+
 <div class="section-content portfolio-page standart">
     @if (Model.Count() > 0)
     {
@@ -14,14 +17,20 @@
                         string path = "~/Images/noimage.jpg";
                         string url = Url.Content((item.PhotoUrl == null) ? path : item.PhotoUrl);
                         <div class="work-post @item.PKUserId">
-                            <img style="height: 200px;" src='@url' alt="Wedding,Chef,Dress,DJ,Stage,Photographer,Limosouine,Salon,GuestHouse">
+                            <img style="height: 200px;" src='@url' alt="@item.SubjectName">
                             <span class="rating" hidden>@item.Rating</span>
                             <div class="hover-box">
                                 <div class="inner-hover">
-                                    <h2>Name:&nbsp @item.TeacherName</h2>
-                                    <h2>Location:&nbsp @item.Location</h2>
-                                    <h2>Category Name: @item.SubjectName</h2>
-                                    <span id="Teacherid" hidden>@item.Teacherid</span>
+                                    <h2>Name :&nbsp @item.ClassName</h2>
+                                    @if (item.CityName != "" && item.CityName != null)
+                                    {<h2>Location:&nbsp @item.CityName</h2> }
+                                    else
+                                    {<h2>Location:&nbsp @item.Location</h2> }
+                                    @*<h2>Location:&nbsp @item.CityName</h2>*@
+                                    <h2>Category: @item.SubjectName</h2>
+                                    <h2>Period: @item.Experience Yrs</h2>
+                                    @*<span id="Teacherid" hidden>@item.TeacherName</span>*@
+                                    @*<h2>Location:&nbsp @item.Location</h2>*@
                                     <a class="link" href='@Url.Action("UserDetails", new { id = item.ClassId })'><i class="fa fa-search"></i></a>
                                 </div>
                             </div>
@@ -56,6 +65,7 @@
         });
     });
 </script>
+
 <script type="text/javascript">
     $(document).ready(function () {
         $("#SortByRating").change(function () {
